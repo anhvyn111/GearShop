@@ -1,0 +1,57 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.Customer>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh sách người dùng
+}
+<div class="mt-3">
+    @using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0" }))
+    {
+        <div class="row">
+
+            <div class="col-3">
+                <input class="form-control mr-sm-2" value="@ViewBag.Search" name="searchString" placeholder="Ví dụ: Dũng" aria-label="Search">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+            </div>
+        </div>
+    }
+    <table class="table table-hover table-striped table-bordered table-responsive mt-4" width="80%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ và tên</th>
+                <th>Tên đăng nhập</th>
+                <th>Ngày sinh</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CustomerID</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Username</td>
+                    <td>@String.Format("{0: dd/MM/yyyy}", item.Birth)</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <div>
+        <p>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber / Model.PageCount)
+        </p>
+        <div class="justify-content-end">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page , @search = ViewBag.Search}))
+        </div>
+    </div>
+</div>

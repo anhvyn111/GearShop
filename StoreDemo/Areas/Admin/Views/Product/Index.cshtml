@@ -1,0 +1,118 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách sản phẩm
+}
+
+<div class="mt-3">
+    @using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0" }))
+    {
+    <div class="row">
+        <div class="col-sm-4">
+            <input class="form-control mr-sm-2" value="@ViewBag.Search" name="search" placeholder="Ví dụ: Bàn phím" aria-label="Search">
+        </div>
+        <div class="col-sm-2 ml-3">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+        </div>
+        <div class="col-sm-2">
+            <a href="~/Admin/Product/Create"class="btn btn-success my-2 my-sm-0"><i class="fas fa-plus text-white"></i> Thêm mới</a>
+        </div>
+    </div>
+    }
+    <table class="table table-striped table-bordered table-responsive mt-4" width="80%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Thương hiệu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr id="row_@item.ProductID">
+                    <td>@item.ProductID</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Brand</td>
+                    <td>
+                        <a href="~/Admin/Product/Edit/@item.ProductID" class="btn btn-success">Chỉnh sửa</a>
+                        <button type="button" class="btn btn-primary btn-detail-product" data-id="@item.ProductID">Chi tiết</button>
+                        <button type="button" class="btn btn-warning btn-manage-images" data-id="@item.ProductID">Quản lí ảnh</button>
+                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ProductID},new AjaxOptions
+                   {
+                       Confirm = "Bạn có chắc muốn xóa sản phẩm " + item.ProductID + " không?",
+                       OnComplete = "$('#row_"+ item.ProductID +"').remove()",
+                       HttpMethod = "Delete"
+                   }, new { @class = "btn btn-danger btn-delete-product" })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <div>
+        <p>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber / Model.PageCount)
+        </p>
+        <div class="justify-content-end">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = ViewBag.Search }))
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" id="productDetailModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chi tiết sản phẩm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body-detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="manageImagesModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quản lí ảnh</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <input type="hidden" id="hidden-product-id" value="">
+                <div class="row">
+                    @*<form method="post" enctype="multipart/form-data">*@
+                        <div class="col-8">
+                            <input type="file" multiple="multiple" id="input-product-images" data-id="1" style="width:20rem;">
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="btn btn-success" id="btn-submit-images" onclick="UploadImages()">Tải lên</button>
+                        </div>
+                        <div id="modal-body-manage-images">
+
+                        </div>
+                    @*</form>*@      
+                </div>
+                <div></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>   

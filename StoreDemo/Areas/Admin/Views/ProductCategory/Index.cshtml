@@ -1,0 +1,34 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.ProductCategory>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh mục sản phẩm
+}
+
+<table class="table table-responsive table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên thể loại</th>
+            <th>Ngày cập nhật</th>
+            <th>Cập nhật bởi</th>
+            <th>Tình trạng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.CategoryName</td>
+                <td>@String.Format("{0: dd/MM/yyyy HH:mm:ss tt}", @item.ModifiedDate)</td>
+                <td>@item.ModifiedBy</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

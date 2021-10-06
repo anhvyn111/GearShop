@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <!-- boxicons -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <!--- Carosel-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css"
+          integrity="sha512-+1GzNJIJQ0SwHimHEEDQ0jbyQuglxEdmQmKsu8KI7QkMPAnyDrL9TAnVyLPEttcTxlnLVzaQgxv2FpLCLtli0A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- app css -->
+    <link rel="stylesheet" href="/Assets/client/css/grid.css" />
+    <link rel="stylesheet" href="/Assets/client/css/app.css" />
+    <link rel="stylesheet" href="/Assets/client/css/root.css" />
+    <link rel="stylesheet" href="/Assets/client/css/res.css" />
+
+    <title>Home</title>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-second">
+            <a href="#" class="mb-logo">ATShop</a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class="bx bx-menu"></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class="bx bx-x"></i>
+            </span>
+            <!-- mid header -->
+            <div class="bg-main">
+                <div class="mid-header container">
+                    <a href="#" class="logo">GearShop</a>
+                    <div class="search">
+                        <input type="text" placeholder="Search" />
+                        <i class="bx bx-search-alt"></i>
+                    </div>
+                    <ul class="user-menu">
+                        <li>
+                            <button style="border: none; background: transparent"
+                                    id="myBtn">
+                                <i class="bx bx-user-circle"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#" class="cart-content">
+                                <i class="bx bx-cart"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    <ul class="main-menu">
+                        <li><a href="index.html">home</a></li>
+                        <!-- mega menu Lap -->
+                        <li class="mega-dropdown">
+                            <a href="products.html">
+                                Laptop<i class="bx bxs-chevron-down"></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Thương Hiệu</h3>
+                                            <ul>
+                                                <li><a href="#">HP</a></li>
+                                                <li><a href="#">ACER</a></li>
+                                                <li><a href="#">MAC</a></li>
+                                                <li><a href="#">ASUS</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Giá Tiền</h3>
+                                            <ul>
+                                                <li><a href="#">15-20 triệu</a></li>
+                                                <li><a href="#">15-20 triệu</a></li>
+                                                <li><a href="#">15-20 triệu</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Acer</h3>
+                                            <ul>
+                                                <li><a href="#">Nitro</a></li>
+                                                <li><a href="#">Nitro</a></li>
+                                                <li><a href="#">Nitro</a></li>
+                                                <li><a href="#">Nitro</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>ASUS</h3>
+                                            <ul>
+                                                <li><a href="#">TUF</a></li>
+                                                <li><a href="#">ROG</a></li>
+                                                <li><a href="#">zephys</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="./products.html">
+                                Màn hình<i class="bx bxs-chevron-down"></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Giá Tiền</h3>
+                                            <ul>
+                                                <li><a href="#">HP</a></li>
+                                                <li><a href="#">ACER</a></li>
+                                                <li><a href="#">MAC</a></li>
+                                                <li><a href="#">ASUS</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Thương hiệu</h3>
+                                            <ul>
+                                                <li><a href="#">cấu hình Tầm trung</a></li>
+                                                <li><a href="#">cấu hình Cao cấp</a></li>
+                                                <li><a href="#">cấu hình siêu Cao cấp</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Kích thước</h3>
+                                            <ul>
+                                                <li><a href="#">Mainboard</a></li>
+                                                <li><a href="#">CPU</a></li>
+                                                <li><a href="#">RAM</a></li>
+                                                <li><a href="#">VGA</a></li>
+                                                <li><a href="#">SSD</a></li>
+                                                <li><a href="#">HDD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Độ phân giải</h3>
+                                            <ul>
+                                                <li><a href="#">HD 720p</a></li>
+                                                <li><a href="#">Full HD 1080p</a></li>
+                                                <li><a href="#">2k 1440p</a></li>
+                                                <li><a href="#">4k UHD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="./products.html">
+                                PC<i class="bx bxs-chevron-down"></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Giá tiền</h3>
+                                            <ul>
+                                                <li><a href="#">HP</a></li>
+                                                <li><a href="#">ACER</a></li>
+                                                <li><a href="#">MAC</a></li>
+                                                <li><a href="#">ASUS</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Cấu Hình Tầm Trung</h3>
+                                            <ul>
+                                                <li><a href="#">cấu hình Tầm trung</a></li>
+                                                <li><a href="#">cấu hình Cao cấp</a></li>
+                                                <li><a href="#">cấu hình siêu Cao cấp</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>cấu hình Cao Cấp</h3>
+                                            <ul>
+                                                <li><a href="#">Mainboard</a></li>
+                                                <li><a href="#">CPU</a></li>
+                                                <li><a href="#">RAM</a></li>
+                                                <li><a href="#">VGA</a></li>
+                                                <li><a href="#">SSD</a></li>
+                                                <li><a href="#">HDD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Cấu hình Homework</h3>
+                                            <ul>
+                                                <li><a href="#">HD 720p</a></li>
+                                                <li><a href="#">Full HD 1080p</a></li>
+                                                <li><a href="#">2k 1440p</a></li>
+                                                <li><a href="#">4k UHD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="./products.html">
+                                Linh kiện<i class="bx bxs-chevron-down"></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Mainboard</h3>
+                                            <ul>
+                                                <li><a href="#">HP</a></li>
+                                                <li><a href="#">ACER</a></li>
+                                                <li><a href="#">MAC</a></li>
+                                                <li><a href="#">ASUS</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>VGA</h3>
+                                            <ul>
+                                                <li><a href="#">cấu hình Tầm trung</a></li>
+                                                <li><a href="#">cấu hình Cao cấp</a></li>
+                                                <li><a href="#">cấu hình siêu Cao cấp</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>RAM</h3>
+                                            <ul>
+                                                <li><a href="#">Mainboard</a></li>
+                                                <li><a href="#">CPU</a></li>
+                                                <li><a href="#">RAM</a></li>
+                                                <li><a href="#">VGA</a></li>
+                                                <li><a href="#">SSD</a></li>
+                                                <li><a href="#">HDD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>SSD</h3>
+                                            <ul>
+                                                <li><a href="#">HD 720p</a></li>
+                                                <li><a href="#">Full HD 1080p</a></li>
+                                                <li><a href="#">2k 1440p</a></li>
+                                                <li><a href="#">4k UHD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>HDD</h3>
+                                            <ul>
+                                                <li><a href="#">HD 720p</a></li>
+                                                <li><a href="#">Full HD 1080p</a></li>
+                                                <li><a href="#">2k 1440p</a></li>
+                                                <li><a href="#">4k UHD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                        <!-- mega menu -->
+                        <li class="mega-dropdown">
+                            <a href="./products.html">
+                                Chuột<i class="bx bxs-chevron-down"></i>
+                            </a>
+                            <div class="mega-content">
+                                <div class="row">
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Thương hiệu</h3>
+                                            <ul>
+                                                <li><a href="#">HP</a></li>
+                                                <li><a href="#">ACER</a></li>
+                                                <li><a href="#">MAC</a></li>
+                                                <li><a href="#">ASUS</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Nhu cầu</h3>
+                                            <ul>
+                                                <li><a href="#">cấu hình Tầm trung</a></li>
+                                                <li><a href="#">cấu hình Cao cấp</a></li>
+                                                <li><a href="#">cấu hình siêu Cao cấp</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Giá tiền</h3>
+                                            <ul>
+                                                <li><a href="#">Mainboard</a></li>
+                                                <li><a href="#">CPU</a></li>
+                                                <li><a href="#">RAM</a></li>
+                                                <li><a href="#">VGA</a></li>
+                                                <li><a href="#">SSD</a></li>
+                                                <li><a href="#">HDD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-12">
+                                        <div class="box">
+                                            <h3>Kết nối</h3>
+                                            <ul>
+                                                <li><a href="#">HD 720p</a></li>
+                                                <li><a href="#">Full HD 1080p</a></li>
+                                                <li><a href="#">2k 1440p</a></li>
+                                                <li><a href="#">4k UHD</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- end mega menu -->
+                    </ul>
+                </div>
+            </div>
+            <!-- end bottom header -->
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <!---end mouse-->
+    <!---end main-->
+    <!-- footer -->
+    <footer class="bg-second" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Show room HCM</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                - Địa chỉ 1: 78-80-82 Hoàng Hoa Thám, Phường 12, Quận Tân
+                                Bình.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                - Địa chỉ 2: 189 Cống Quỳnh, Phường Nguyễn Cư Trinh, Quận
+                                1.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Show room HN</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                - Địa chỉ : 37 Ngõ 121 Thái Hà, Phường Trung Liệt, Quận Đống
+                                Đa.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Contact us</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                Gọi mua hàng:<br />
+                                <span style="font-weight: bold">1800 6975</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Hỗ trợ khách hàng:<br />
+                                <span style="font-weight: bold">1800 6173</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">GearShop</h3>
+                        <ul class="contact-socials">
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-facebook-circle"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-instagram-alt"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="subscribe">
+                        <input type="email" placeholder="ENTER YOUR EMAIL" />
+                        <button>subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content form-box">
+            <span class="close">&times;</span>
+
+            <div class="button-box">
+                <div id="btn"></div>
+                <button class="toggle-btn" onclick="login()">Đăng nhập</button>
+                <button class="toggle-btn" onclick="register()">Đăng ký</button>
+            </div>
+
+            <form id="login" action="" class="input-group">
+                <input id="user-name"
+                       type="text"
+                       class="input-field"
+                       placeholder="User Id"
+                       required />
+                <input id="password"
+                       type="text"
+                       class="input-field"
+                       placeholder="Password"
+                       required />
+                <input type="checkbox" class="check-box" /><span>Remember Me</span>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <form id="register" action="" class="input-group">
+                <input id="user-name"
+                       type="text"
+                       class="input-field"
+                       placeholder="Tài khoản"
+                       required />
+                <input id="email"
+                       type="email"
+                       class="input-field"
+                       placeholder="Email"
+                       required />
+                <input id="password"
+                       type="text"
+                       class="input-field"
+                       placeholder="mật khẩu"
+                       required />
+                <input id="Address"
+                       type="text"
+                       class="input-field"
+                       placeholder="Địa chỉ"
+                       required />
+                <input id="phone-number"
+                       type="text"
+                       class="input-field"
+                       placeholder="Số điện thoại"
+                       required />
+                <input type="checkbox" class="check-box" /><span>I agree to the terms & conditons</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!--end Modal-->
+</body>
+
+<script src="/Assets/client/js/app.js"></script>
+<script src="/Assets/client/js/slider.js"></script>
+<script src="/Assets/client/js/carosel.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
+        integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+    });
+</script>
+<script>
+    // swiper
+    $(document).ready(function () {
+        $(".autoWidth").lightSlider({
+            autoWidth: true,
+            loop: false,
+            onSliderLoad: function () {
+                $(".autoWidth").removeClass("cS-hidden");
+            },
+        });
+    });
+</script>
+</html>
