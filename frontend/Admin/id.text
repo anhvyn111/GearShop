@@ -1,0 +1,15 @@
+dashboard: 
+#users_number: số lượng users
+#orders_number:số lượng đơn hàng
+#earns_number: số tiền kiếm được
+list  10 dòng cho mỗi table
+#cus_name:tên khách hàng
+#cus_order: số lượng order của khánh hàng
+#order_id: id đơn hàng
+#order_cus: khách hàng nhận đơn
+#order_price: giá đơn hàng
+#order_status: trạng thái đơn hàng
+
+login: 
+#admin_id: tài khoản 
+#admin_password: mật khẩu

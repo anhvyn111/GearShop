@@ -1,0 +1,317 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--color-dark);
+    border-left: 10px solid var(--color-dark);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active {
+    width: 80px;
+}
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-left: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:first-child {
+    margin-bottom: 40px;
+    pointer-events: none;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background: var(--white-color);
+}
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white-color);
+}
+.navigation ul li a:hover,
+.navigation ul li a.hovered {
+    color: var(--color-dark);
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    line-height: 65px;
+    height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon i {
+    font-size: 20px;
+}
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/* curve outside*/
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white-color);
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white-color);
+}
+
+/* Main */
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white-color);
+    transition: 0.5s;
+}
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle {
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+.cardBox .card {
+    position: relative;
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+.cardBox .card .number {
+    position: relative;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--color-dark);
+}
+.cardBox .card .cardName {
+    color: var(--text);
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+.cardBox .card .iconBx {
+    font-size: 40px;
+    color: var(--text);
+}
+.cardBox .card:hover {
+    background: var(--color-dark);
+}
+.cardBox .card:hover .number {
+    color: var(--white-color);
+}
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+.details .recentOrders {
+    position: relative;
+
+    display: grid;
+    min-height: 500px;
+    background: var(--white-color);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--text);
+}
+.cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--color-dark);
+    text-decoration: none;
+    color: var(--white-color);
+    border-radius: 6px;
+}
+.cardHeader .btn:hover {
+    background: rgb(65, 63, 63);
+}
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details table thead td {
+    font-weight: 600;
+}
+.details .recentOrders table tr {
+    color: var(--color-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover {
+    background: var(--color-dark);
+    color: var(--white-color);
+}
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: end;
+}
+.status.green {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white-color);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.red {
+    padding: 2px 4px;
+    background: #e0412c;
+    color: var(--white-color);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.yellow {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white-color);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.details .recentCustomers {
+    position: relative;
+
+    display: grid;
+    min-height: 500px;
+    background: var(--white-color);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.details table thead td {
+    font-weight: 600;
+}
+.details .recentCustomers table tr {
+    color: var(--color-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .recentCustomers table tr:last-child {
+    border-bottom: none;
+}
+.details .recentCustomers table tbody tr:hover {
+    background: var(--color-dark);
+    color: var(--white-color);
+}
+.details .recentCustomers table tr td {
+    padding: 10px;
+}
+.details .recentCustomers table tr td:last-child {
+    text-align: end;
+}
+
+/*table css */
+.table_container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+.table_container .table_details {
+    position: relative;
+
+    display: grid;
+    min-height: 500px;
+    background: var(--white-color);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}

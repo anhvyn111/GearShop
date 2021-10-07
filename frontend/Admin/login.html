@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/root.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Icon-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <main>
+      <div class="form-box">
+        <div class="title">
+          <h2>Admin</h2>
+        </div>
+
+        <form id="login_admin" action="" class="input-group">
+          <input
+            type="text"
+            class="input-field"
+            placeholder="User Id"
+            id="admin_id"
+            required
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Password"
+            id="admin_password"
+            required
+          />
+
+          <button type="submit" class="submit-btn" id="submit_btn">
+            Login
+          </button>
+        </form>
+      </div>
+    </main>
+    <div class="circel circel1"></div>
+    <div class="circel circel2"></div>
+  </body>
+  <script src="./js/admin.js"></script>
+</html>

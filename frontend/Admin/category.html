@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/root.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/res.css" />
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Icon-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!------>
+    <div class="contaner">
+      <!---NAV--->
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"> </span>
+              <span class="title">GearShop</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+              <span class="title">Trang chủ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-shapes"></i>
+              </span>
+              <span class="title">Danh mục</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-dolly-flatbed"></i>
+              </span>
+              <span class="title">Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"> <i class="fas fa-user"></i></span>
+              <span class="title">Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+              <span class="title">Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span class="title">Đăng xuất</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!---End NAV--->
+      <!--Main-->
+      <div class="main">
+        <!--bar-->
+        <div class="topbar">
+          <div class="toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <!--end bar-->
+
+        <!--table-->
+        <div class="table_container">
+          <div class="table_details">
+            <div class="cardHeader">
+              <h2>Recent Orders</h2>
+              <button class="btn">Add</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <td>ID_Cate</td>
+                  <td>Name</td>
+                  <td>Price</td>
+                  <td>Status</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="order_id">110011</td>
+                  <td id="order_cus">abfdd</td>
+                  <td id="order_price">10.000.000</td>
+                  <td id="order_status">
+                    <span class="status green">Complete</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!--end table-->
+
+      <!---End Main--->
+    </div>
+  </body>
+  <script src="./js/admin.js"></script>
+</html>
