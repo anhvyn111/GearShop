@@ -68,6 +68,7 @@
     <Compile Include="Framework\Customer.cs" />
     <Compile Include="Framework\ImportGood.cs" />
     <Compile Include="Framework\ImportProduct.cs" />
+    <Compile Include="Framework\Menu.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\ProductCategory.cs" />
     <Compile Include="Framework\ProductImage.cs" />

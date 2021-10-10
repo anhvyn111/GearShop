@@ -13,7 +13,7 @@
         top: 0;
         right: 100%;
         background-color: var(--main-bg-color);
-        z-index: 99;
+        z-index: 50;
         transition: right 0.3s ease-in-out;
     }
 
@@ -173,6 +173,12 @@
     .pagination {
         justify-content: center;
     }
+    .cart_container h2 {
+        padding-top: 100px;
+    }
+    .checkout_title i::before {
+        padding-top: 100px;
+    }
 }
 @media only screen and (max-width: 750px) {
     .hero {
@@ -195,5 +201,11 @@
     }
     .swiper {
         height: 100px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .ck_modal-content {
+        width: 250px;
+        font-size: 15px;
     }
 }

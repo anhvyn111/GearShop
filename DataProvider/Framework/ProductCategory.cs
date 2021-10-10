@@ -14,7 +14,6 @@ namespace DataProvider.Framework
         [StringLength(200)]
         public string CategoryName { get; set; }
 
-        public int? ParentID { get; set; }
 
         [StringLength(200)]
         public string MetaTitle { get; set; }
@@ -25,5 +24,8 @@ namespace DataProvider.Framework
         public DateTime? ModifiedDate { get; set; }
 
         public bool? Status { get; set; }
+
+        public int? MenuID { get; set; }
+
     }
 }

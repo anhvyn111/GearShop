@@ -20,6 +20,8 @@ namespace DataProvider.Framework
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<ProductTag> ProductTags { get; set; }
+
+        public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
 

@@ -196,6 +196,7 @@
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Detail.cshtml" />
+    <Content Include="Assets\client\images\tb---tsnn--tttn--ktn-k2018---cap-nhat-24-3-2021%2820210917_082552_315%29_.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
