@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace DataProvider
 {
-    public class AccountDAO
+    public class AdminDAO
     {
-        private StoreDemoDbContext context = null;
-        public AccountDAO()
+        private GearShopDbContext context = null;
+        public AdminDAO()
         {
-            context = new StoreDemoDbContext();
+            context = new GearShopDbContext();
         }
         public int Insert(Admin entity)
         {
             context.Admins.Add(entity);
-            context.SaveChanges();
-            return entity.AdminID;
+            int count = context.SaveChanges();
+            return count;
         }
         public Admin GetByUsername(string username)
         {

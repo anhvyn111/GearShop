@@ -9,28 +9,27 @@ namespace DataProvider.Framework
     [Table("Customer")]
     public partial class Customer
     {
+        [Key]
+        [Column(Order = 0)]
         public int CustomerID { get; set; }
 
-        [StringLength(50)]
-        public string Username { get; set; }
-
-        [StringLength(50)]
-        public string Password { get; set; }
-
-        [StringLength(100)]
-        public string FullName { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? Birth { get; set; }
-
+        [Key]
+        [Column(Order = 1)]
         [StringLength(100)]
         public string Email { get; set; }
 
-        [StringLength(10)]
+        [StringLength(255)]
+        public string FullName { get; set; }
+
+        public DateTime? Birth { get; set; }
+
+        public bool? Gender { get; set; }
+
+        [StringLength(11)]
         public string PhoneNumber { get; set; }
 
-        [StringLength(500)]
-        public string Address { get; set; }
+        [StringLength(200)]
+        public string Password { get; set; }
 
         public int? Status { get; set; }
     }

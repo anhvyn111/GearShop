@@ -9,17 +9,17 @@ namespace DataProvider.DAO
 {
     public class CustomerDAO
     {
-        private StoreDemoDbContext context = null;
+        private GearShopDbContext context = null;
         public CustomerDAO()
         {
-            context = new StoreDemoDbContext();
+            context = new GearShopDbContext();
         }
         public IEnumerable<Customer> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Customer> model = context.Customers;
             if (!string.IsNullOrEmpty(searchString))
             {
-                return context.Customers.Where(x=>x.Username.Contains(searchString)|| x.FullName.Contains(searchString)).OrderByDescending(x => x.CustomerID).ToPagedList(page, pageSize);
+                return context.Customers.Where(x=>x.Email.Contains(searchString)|| x.FullName.Contains(searchString)).OrderByDescending(x => x.CustomerID).ToPagedList(page, pageSize);
             }
             else
             {

@@ -18,5 +18,7 @@ namespace DataProvider.Framework
         [Column(Order = 1)]
         [StringLength(200)]
         public string TagID { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }

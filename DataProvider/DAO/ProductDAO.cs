@@ -13,10 +13,10 @@ namespace DataProvider.DAO
 {
     public class ProductDAO
     {
-        StoreDemoDbContext context = null;
+        GearShopDbContext context = null;
         public ProductDAO()
         {
-            context = new StoreDemoDbContext();
+            context = new GearShopDbContext();
         }
         public int Insert(Product model)
         {
@@ -24,9 +24,9 @@ namespace DataProvider.DAO
             context.Products.Add(model);
             context.SaveChanges();
 
-            if (!string.IsNullOrEmpty(model.Tags))
+            if (!string.IsNullOrEmpty(model.ProductTag))
             {
-                string[] tags = model.Tags.Split(',');
+                string[] tags = model.ProductTag.Split(',');
                 foreach(var tag in tags)
                 {
                     var tagID = StringHelper.ToUnsignString(tag);
@@ -47,20 +47,19 @@ namespace DataProvider.DAO
             if(product != null)
             {
                 product.ProductName = model.ProductName;
-                product.Brand = model.Brand;
                 product.PromotionPrice = model.PromotionPrice;
                 product.Price = model.Price;
                 product.MetaTitle = StringHelper.ToUnsignString(model.ProductName);
-                product.Decription = model.Decription;
-                product.Tags = model.Tags;
+                product.Description = model.Description;
+                product.ProductTag = model.ProductTag;
                 product.Detail = model.Detail;
                 product.ModifiedBy = model.ModifiedBy;
                 product.ModifiedDate = model.ModifiedDate;
                 context.SaveChanges();
                 DeleteAllProductTag(product.ProductID);
-                if (!string.IsNullOrEmpty(model.Tags))
+                if (!string.IsNullOrEmpty(model.ProductTag))
                 {
-                    string[] tags = model.Tags.Split(',');
+                    string[] tags = model.ProductTag.Split(',');
                     foreach (var tag in tags)
                     {
                         var tagID = StringHelper.ToUnsignString(tag);
@@ -87,7 +86,7 @@ namespace DataProvider.DAO
                 {
                     context.Products.Remove(product);
                     context.SaveChanges();
-                    if (!string.IsNullOrEmpty(product.Tags))
+                    if (!string.IsNullOrEmpty(product.ProductTag))
                     {
                         DeleteAllProductTag(productID);
                     }
@@ -139,7 +138,7 @@ namespace DataProvider.DAO
             IQueryable<Product> model = context.Products;
             if (!string.IsNullOrEmpty(search))
             {
-                return model.Where(x => x.ProductName.Contains(search) || x.Brand.Contains(search)).OrderByDescending(x => x.ProductID).ToPagedList(page, pageSize);
+                return model.Where(x => x.ProductName.Contains(search)).OrderByDescending(x => x.ProductID).ToPagedList(page, pageSize);
             }
             else
             {

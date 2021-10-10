@@ -10,29 +10,29 @@ namespace DataProvider.DAO
 {
     public class ProductCategoryDAO
     {
-        StoreDemoDbContext context = null;
+        GearShopDbContext context = null;
         public ProductCategoryDAO()
         {
-            context = new StoreDemoDbContext();
+            context = new GearShopDbContext();
         }
         public IEnumerable<ProductCategory> ListAllPaging(int page, int pageSize)
         {
-            return context.ProductCategories.OrderBy(x => x.ID).ToPagedList(page, pageSize);
+            return context.ProductCategories.OrderBy(x => x.CategoryID).ToPagedList(page, pageSize);
         }
         public int Insert(ProductCategory entity)
         {
             context.ProductCategories.Add(entity);
-            context.SaveChanges();
-            return entity.ID;
+            int count = context.SaveChanges();
+            return count;
         }
 
         public ProductCategory GetByID(int? id)
         {
-            return context.ProductCategories.SingleOrDefault(x => x.ID == id);
+            return context.ProductCategories.SingleOrDefault(x => x.CategoryID == id);
         }
         public List<ProductCategory> ListAll()
         {
-            return context.ProductCategories.Where(x => x.Status == true).OrderBy(x => x.ID).ToList();
+            return context.ProductCategories.Where(x => x.Status == true).OrderBy(x => x.CategoryID).ToList();
         }
     }
    

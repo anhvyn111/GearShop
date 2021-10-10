@@ -1,4 +1,4 @@
-namespace DataProvider.Framework
+﻿namespace DataProvider.Framework
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,9 @@ namespace DataProvider.Framework
     [Table("Tag")]
     public partial class Tag
     {
-        [StringLength(200)]
+        [Key]
         public string TagID { get; set; }
 
-        [StringLength(200)]
         public string TagName { get; set; }
     }
 }
