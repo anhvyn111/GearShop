@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/root.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/res.css" />
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Icon-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!------>
+    <div class="contaner">
+      <!---NAV--->
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"> </span>
+              <span class="title">GearShop</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+              <span class="title">Trang chủ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-shapes"></i>
+              </span>
+              <span class="title">Danh mục</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-dolly-flatbed"></i>
+              </span>
+              <span class="title">Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"> <i class="fas fa-user"></i></span>
+              <span class="title">Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+              <span class="title">Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span class="title">Đăng xuất</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!---End NAV--->
+      <!--Main-->
+      <div class="main">
+        <!--bar-->
+        <div class="topbar">
+          <div class="toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <!--end bar-->
+
+        <!--table-->
+        <div class="details_table">
+          <!-- Orders table-->
+          <div class="recent_table">
+            <div class="cardHeader">
+              <h2>Sản phẩm</h2>
+              <input
+                class="search_box"
+                type="text"
+                placeholder="Tìm.."
+                id="search_product"
+                style="width: 40%"
+              />
+              <button class="btn" id="add_product_Btn">Thêm</button>
+            </div>
+            <table id="table_product">
+              <thead>
+                <tr>
+                  <td>STT</td>
+                  <td>Tên sản phẩm</td>
+                  <td>Thương hiệu</td>
+                  <td>Danh mục</td>
+                  <td>Giá tiền</td>
+                  <td>Chỉnh sửa</td>
+                </tr>
+              </thead>
+              <tbody id="product_body">
+                <tr>
+                  <td>1</td>
+                  <td><p id="product_name"></p></td>
+                  <td>
+                    <p id="product_brand"></p>
+                  </td>
+                  <td>
+                    <p id="product_cate"></p>
+                  </td>
+                  <td><p id="product_price"></p></td>
+                  <td>
+                    <button id="read_product_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="pageNavPosition" class="pager-nav"></div>
+          </div>
+        </div>
+
+        <!--end table-->
+      </div>
+
+      <!---End Main--->
+    </div>
+
+    <!--Delete Modal-->
+    <div id="delete_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Xóa</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="brand_form">
+            <div class="form_container">
+              <span>Xác nhận xóa </span><span id="delete_name">asus</span>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_delete"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="form1"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Xóa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End Delete Modal -->
+
+    <!--Add product Modal-->
+    <div id="add_product_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="add_product_close close">&times;</span>
+          <h2>Thêm sản phẩm</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="add_product_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-50">
+                  <label for="product_id">ID_Sản phẩm:</label>
+                  <input
+                    type="text"
+                    id="product_id"
+                    name="product_id"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_name">Tên sản phẩm:</label>
+                  <input
+                    type="text"
+                    id="product_name"
+                    name="product_name"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_cate">Danh mục:</label>
+                  <select
+                    id="product_cate"
+                    name="product_cate"
+                    form="add_product_form"
+                  >
+                    <option value="Pc">PC</option>
+                    <option value="Gear">Gear</option>
+                    <option value="Laptop">Laptop</option>
+                  </select>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_brand">Thương hiệu:</label>
+                  <select
+                    id="product_brand"
+                    name="product_brand"
+                    form="add_product_form"
+                  >
+                    <option value="Asus">Asus</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Mac">Mac</option>
+                  </select>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_price">Giá:</label>
+                  <input
+                    type="text"
+                    id="product_price"
+                    name="product_price"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_discount">Giá khuyến mãi:</label>
+                  <input
+                    type="text"
+                    id="product_discount"
+                    name="product_discount"
+                    value="09dada"
+                  />
+                </div>
+
+                <div class="form_col-50">
+                  <label for="product_sub">Chú thích: </label>
+                  <textarea
+                    id="product_sub"
+                    name="product_sub"
+                    rows="2"
+                    cols="50"
+                  >
+                  </textarea>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_des">Mô tả: </label>
+                  <textarea
+                    id="product_des"
+                    name="product_des"
+                    rows="2"
+                    cols="50"
+                  >
+                  </textarea>
+                </div>
+              </div>
+              <div class="form_row">
+                <label for="product_image1">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image1"
+                  name="product_image1"
+                  required
+                  accept="image/*"
+                />
+              </div>
+              <div class="form_row">
+                <label for="product_image2">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image2"
+                  name="product_image2"
+                  required
+                  accept="image/*"
+                />
+              </div>
+              <div class="form_row">
+                <label for="product_image3">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image3"
+                  name="product_image3"
+                  required
+                  accept="image/*"
+                />
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_add_order"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="add_product_form"
+                  value="submit"
+                  class="btn_submit"
+                  id="submit_add_product"
+                >
+                  Sửa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!---End ADD product Modal-->
+
+    <!--Update product Modal-->
+    <div id="update_product_Modal" class="modal" style="display: block">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="update_product_close close">&times;</span>
+          <h2>Sửa sản phẩm</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="update_product_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-50">
+                  <label for="product_id">ID_Sản phẩm:</label>
+                  <input
+                    type="text"
+                    id="product_id"
+                    name="product_id"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_name">Tên sản phẩm:</label>
+                  <input
+                    type="text"
+                    id="product_name"
+                    name="product_name"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_cate">Danh mục:</label>
+                  <select
+                    id="product_cate"
+                    name="product_cate"
+                    form="update_product_form"
+                  >
+                    <option value="Pc">PC</option>
+                    <option value="Gear">Gear</option>
+                    <option value="Laptop">Laptop</option>
+                  </select>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_brand">Thương hiệu:</label>
+                  <select
+                    id="product_brand"
+                    name="product_brand"
+                    form="update_product_form"
+                  >
+                    <option value="Asus">Asus</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Mac">Mac</option>
+                  </select>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_price">Giá:</label>
+                  <input
+                    type="text"
+                    id="product_price"
+                    name="product_price"
+                    value="09dada"
+                  />
+                </div>
+                <div class="form_col-50">
+                  <label for="product_discount">Giá khuyến mãi:</label>
+                  <input
+                    type="text"
+                    id="product_discount"
+                    name="product_discount"
+                    value="09dada"
+                  />
+                </div>
+
+                <div class="form_col-50">
+                  <label for="product_sub">Chú thích: </label>
+                  <textarea
+                    id="product_sub"
+                    name="product_sub"
+                    rows="2"
+                    cols="50"
+                  >
+                  </textarea>
+                </div>
+                <div class="form_col-50">
+                  <label for="product_des">Mô tả: </label>
+                  <textarea
+                    id="product_sub"
+                    name="product_des"
+                    rows="2"
+                    cols="50"
+                  >
+                  </textarea>
+                </div>
+              </div>
+              <div class="form_row">
+                <img
+                  src="https://didongviet.vn/pub/media/catalog/product//l/a/laptop-gaming-acer-nitro-5-an515-57-57mx-8gb-512gb-win-10.jpg"
+                  alt=""
+                  id="product_show_image1"
+                />
+                <img
+                  src="https://tuong.me/wp-content/uploads/2021/05/Laptop-Acer-Nitro-5-AN515-laptop-gaming-duoi-20-trieu-tot-nhat.jpg"
+                  alt=""
+                  id="product_show_image2"
+                />
+                <img
+                  src="https://www.tncstore.vn/image/cache/catalog/laptop/laptop%20acer/Nitro%205%20RTX%203000/laptop-acer-nitro5-eagle-01-228x228.jpg"
+                  alt=""
+                  id="product_show_image3"
+                />
+              </div>
+              <div class="form_row">
+                <label for="product_image1">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image1"
+                  name="product_image1"
+                  accept="image/*"
+                />
+              </div>
+
+              <div class="form_row">
+                <label for="product_image2">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image2"
+                  name="product_image2"
+                  accept="image/*"
+                />
+              </div>
+              <div class="form_row">
+                <label for="product_image3">Hình ảnh: </label>
+                <input
+                  type="file"
+                  id="product_image3"
+                  name="product_image3"
+                  accept="image/*"
+                />
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_update_product"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="update_product_form"
+                  value="submit"
+                  class="btn_submit"
+                  id="submit_update_product"
+                >
+                  Sửa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!---End ADD product Modal-->
+  </body>
+  <script src="./js/admin.js"></script>
+  <script src="./js/pagination.js"></script>
+  <script>
+    ProductModal();
+    let pager = new Pager("table_product", 10);
+    pager.init();
+    pager.showPageNav("pager", "pageNavPosition");
+    pager.showPage(1);
+  </script>
+</html>

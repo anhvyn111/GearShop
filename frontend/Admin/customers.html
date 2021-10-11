@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/root.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/res.css" />
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Icon-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!------>
+    <div class="contaner">
+      <!---NAV--->
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"> </span>
+              <span class="title">GearShop</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+              <span class="title">Trang chủ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-shapes"></i>
+              </span>
+              <span class="title">Danh mục</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-dolly-flatbed"></i>
+              </span>
+              <span class="title">Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"> <i class="fas fa-user"></i></span>
+              <span class="title">Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+              <span class="title">Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <span class="title">Đăng xuất</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!---End NAV--->
+      <!--Main-->
+      <div class="main">
+        <!--bar-->
+        <div class="topbar">
+          <div class="toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <!--end bar-->
+
+        <!--table-->
+        <div class="details_table">
+          <!-- Orders table-->
+          <div class="recent_table">
+            <div class="cardHeader">
+              <h2>Khách hàng</h2>
+              <input
+                class="search_box"
+                type="text"
+                placeholder="Tìm.."
+                id="search_cus"
+                style="width: 40%"
+              />
+            </div>
+            <table id="table_cus">
+              <thead>
+                <tr>
+                  <td>STT</td>
+                  <td>ID_Khách hàng</td>
+                  <td>Username</td>
+                  <td>Địa chỉ</td>
+                  <td>Email</td>
+                  <td>Chỉnh sửa</td>
+                </tr>
+              </thead>
+              <tbody id="cus_body">
+                <tr>
+                  <td>1</td>
+                  <td><p id="cus_id"></p></td>
+                  <td>
+                    <p id="cus_name"></p>
+                  </td>
+                  <td>
+                    <p id="cus_add"></p>
+                  </td>
+                  <td><p id="cus_email"></p></td>
+                  <td>
+                    <button id="read_cus_Btn">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cus_id"></p></td>
+                  <td>
+                    <p id="cus_name"></p>
+                  </td>
+                  <td>
+                    <p id="cus_add"></p>
+                  </td>
+                  <td><p id="cus_email"></p></td>
+                  <td>
+                    <button id="read_cus_Btn">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cus_id"></p></td>
+                  <td>
+                    <p id="cus_name"></p>
+                  </td>
+                  <td>
+                    <p id="cus_add"></p>
+                  </td>
+                  <td><p id="cus_email"></p></td>
+                  <td>
+                    <button id="read_cus_Btn">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="pageNavPosition_cus" class="pager-nav"></div>
+          </div>
+        </div>
+
+        <!--end table-->
+      </div>
+
+      <!---End Main--->
+    </div>
+
+    <!--Delete Modal-->
+    <div id="delete_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Xóa</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="brand_form">
+            <div class="form_container">
+              <span>Xác nhận xóa </span><span id="delete_name">asus</span>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_delete"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="form1"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Xóa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End Delete Modal -->
+
+    <!---Read Cus Modal-->
+    <div id="read_cus_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Thông tin khách hàng</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="read_cus_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_id">ID_Khách hàng:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_id"
+                    name="cus_id"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_name">Username:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_name"
+                    name="cus_name"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_add">Địa chỉ:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_add"
+                    name="cus_add"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_phone">Số điện thoại:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_phone"
+                    name="cus_phone"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_email">Email:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_email"
+                    name="cus_email"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="cus_order">Số đơn hàng:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="cus_order"
+                    name="cus_order"
+                    disabled
+                    value="John"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_read_cus"
+                >
+                  Hủy
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!---End Read Cus Modal-->
+  </body>
+  <script src="./js/admin.js"></script>
+  <script src="./js/pagination.js"></script>
+  <script>
+    CusModal();
+    let pager_cus = new Pager("table_cus", 10);
+    pager_cus.init();
+    pager_cus.showPageNav("pager_cus", "pageNavPosition_cus");
+    pager_cus.showPage(1);
+  </script>
+</html>

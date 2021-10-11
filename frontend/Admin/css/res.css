@@ -18,16 +18,27 @@
     .cardBox {
         grid-template-columns: repeat(1, 1fr);
     }
-    .details {
+    .details,
+    .details_cate {
         grid-template-columns: repeat(1, 1fr);
     }
-    .recentOrders {
+    .recentOrders,
+    .recentCate,
+    .recentBran {
         overflow-x: auto;
     }
+
     .navigation {
         width: 100%;
         left: -100%;
         z-index: 1000;
+    }
+    .form_col-25,
+    .form_col-75,
+    .form_col-50,
+    .modal-body input[type="submit"] {
+        width: 100%;
+        margin-top: 0;
     }
 }
 @media (max-width: 480px) {

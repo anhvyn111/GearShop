@@ -47,7 +47,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./category.html">
               <span class="icon">
                 <i class="fas fa-shapes"></i>
               </span>
@@ -55,7 +55,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./products.html">
               <span class="icon">
                 <i class="fas fa-dolly-flatbed"></i>
               </span>
@@ -63,13 +63,13 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./customers.html">
               <span class="icon"> <i class="fas fa-user"></i></span>
               <span class="title">Khách hàng</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./orders.html">
               <span class="icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="title">Đơn hàng</span>
             </a>
@@ -94,40 +94,600 @@
         <!--end bar-->
 
         <!--table-->
-        <div class="table_container">
-          <div class="table_details">
+
+        <div class="details_cate">
+          <!-- Orders table-->
+          <div class="recentCate">
             <div class="cardHeader">
-              <h2>Recent Orders</h2>
-              <button class="btn">Add</button>
+              <h2>Thương hiệu</h2>
+              <input
+                class="search_box"
+                type="text"
+                placeholder="Tìm.."
+                id="search_brand"
+              />
+              <button class="btn" id="brand_Btn">Thêm</button>
             </div>
-            <table>
+            <table id="table_brand">
               <thead>
                 <tr>
-                  <td>ID_Cate</td>
-                  <td>Name</td>
-                  <td>Price</td>
-                  <td>Status</td>
+                  <td>STT</td>
+                  <td>ID_Brand</td>
+                  <td>Tên thương hiệu</td>
+                  <td>Số lượng</td>
+                  <td>Chỉnh sửa</td>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="brand_body">
                 <tr>
-                  <td id="order_id">110011</td>
-                  <td id="order_cus">abfdd</td>
-                  <td id="order_price">10.000.000</td>
-                  <td id="order_status">
-                    <span class="status green">Complete</span>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="brand_id">110011</p></td>
+                  <td>
+                    <p id="brand_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="brand_number">19999</p></td>
+                  <td>
+                    <button id="update_brand_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
+            <div id="pageNavPosition_brand" class="pager-nav"></div>
           </div>
+
+          <!--end orders table -->
+
+          <!---Catogory-->
+          <div class="recentCate">
+            <div class="cardHeader">
+              <h2>Danh mục</h2>
+              <input
+                class="search_box"
+                type="text"
+                placeholder="Tìm.."
+                id="search_cate"
+              />
+              <button class="btn" id="cate_Btn">Thêm</button>
+            </div>
+            <table id="table_cate">
+              <thead>
+                <tr>
+                  <td>STT</td>
+                  <td>ID_Cate</td>
+                  <td>Tên danh mục</td>
+                  <td>Số lượng</td>
+                  <td>Chỉnh sửa</td>
+                </tr>
+              </thead>
+              <tbody id="cate_body">
+                <tr>
+                  <td>1</td>
+                  <td><p id="cate_id">110011</p></td>
+                  <td>
+                    <p id="cate_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="cate_number">19999</p></td>
+                  <td>
+                    <button id="#update_cate_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cate_id">110011</p></td>
+                  <td>
+                    <p id="cate_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="cate_number">19999</p></td>
+                  <td>
+                    <button id="#update_cate_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cate_id">110011</p></td>
+                  <td>
+                    <p id="cate_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="cate_number">19999</p></td>
+                  <td>
+                    <button id="#update_cate_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cate_id">110011</p></td>
+                  <td>
+                    <p id="cate_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="cate_number">19999</p></td>
+                  <td>
+                    <button id="#update_cate_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><p id="cate_id">110011</p></td>
+                  <td>
+                    <p id="cate_name">
+                      abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                    </p>
+                  </td>
+                  <td><p id="cate_number">19999</p></td>
+                  <td>
+                    <button id="#update_cate_Btn">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="pageNavPosition_cate" class="pager-nav"></div>
+          </div>
+
+          <!---end table cate-->
         </div>
+
+        <!--end table-->
       </div>
-
-      <!--end table-->
-
       <!---End Main--->
     </div>
+
+    <!--Brand Modal-->
+    <!--Add Brand Modal -->
+    <div id="add_brand_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="brand_close close">&times;</span>
+          <h2>Thêm thương hiệu</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="add_brand_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="id_brand">ID_Brand:</label>
+                </div>
+                <div class="form_col-75">
+                  <input type="text" id="id_brand" name="id_brand" />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="name_brand">Tên thương hiệu:</label>
+                </div>
+                <div class="form_col-75">
+                  <input type="text" id="name_brand" name="name_brand" />
+                </div>
+              </div>
+
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_add_brand"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="add_brand_form"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Thêm
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End Add Brand Modal -->
+
+    <!--Update Brand Modal -->
+    <div id="update_brand_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="update_brand_close close">&times;</span>
+          <h2>Sửa thương hiệu</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="update_brand_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="update_id_brand">ID_Brand:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="update_id_brand"
+                    name="update_id_brand"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="update_name_brand">Tên thương hiệu:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="update_name_brand"
+                    name="update_name_brand"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_update_brand"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="update_brand_form"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Sửa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--Enđ Update Brand Modal -->
+    <!--End Brand Modal -->
+
+    <!--Cate Modal -->
+    <!---Add Cate-->
+    <div id="add_cate_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="cate_close close">&times;</span>
+          <h2>Thêm phân loại</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="add_cate_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="id_cate">ID_Cate:</label>
+                </div>
+                <div class="form_col-75">
+                  <input type="text" id="id_cate" name="id_cate" />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="name_cate">Tên danh mục:</label>
+                </div>
+                <div class="form_col-75">
+                  <input type="text" id="name_cate" name="name_cate" />
+                </div>
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  value="cancel"
+                  class="btn_cancel"
+                  form="form1"
+                  id="cancel_add_cate"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="add_cate_form"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Thêm
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End Add Cate Modal -->
+
+    <!--Update Cate Modal -->
+    <div id="update_cate_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="update_cate_close close">&times;</span>
+          <h2>Sửa danh mục</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="update_cate_form">
+            <div class="form_container">
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="update_id_cate">ID_Cate:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="update_id_cate"
+                    name="update_id_cate"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_col-25">
+                  <label for="update_name_cate">Tên danh mục:</label>
+                </div>
+                <div class="form_col-75">
+                  <input
+                    type="text"
+                    id="update_name_cate"
+                    name="update_name_cate"
+                  />
+                </div>
+              </div>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  value="cancel"
+                  form="form1"
+                  class="btn_cancel"
+                  id="cancel_update_cate"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="update_cate_form"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Sửa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--end update cate Modal-->
+
+    <!--Delete Modal-->
+    <div id="delete_Modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Xóa</h2>
+        </div>
+        <div class="modal-body">
+          <form action="" id="delete_form">
+            <div class="form_container">
+              <span>Xác nhận xóa </span><span id="delete_name">asus</span>
+              <div class="form_row">
+                <button
+                  type="cancel"
+                  form="form1"
+                  value="cancel"
+                  class="btn_cancel"
+                  id="cancel_delete"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  form="delete_form"
+                  value="submit"
+                  class="btn_submit"
+                >
+                  Xóa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End delete Modal -->
+
+    <!--- End Cate Modal-->
   </body>
   <script src="./js/admin.js"></script>
+  <script src="./js/pagination.js"></script>
+  <script>
+    CateModel();
+    let pager_brand = new Pager("table_brand", 10);
+    pager_brand.init();
+    pager_brand.showPageNav("pager_brand", "pageNavPosition_brand");
+    pager_brand.showPage(1);
+    //Delete Modal
+  </script>
 </html>
