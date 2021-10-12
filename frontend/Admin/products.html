@@ -106,6 +106,18 @@
                 id="search_product"
                 style="width: 40%"
               />
+
+              <select name="brand_select" id="brand_select" style="width: 20%">
+                <option value="">--Chọn thương hiệu--</option>
+                <option value="asus">Asus</option>
+                <option value="asus">Asus</option>
+                <option value="asus">Asus</option>
+              </select>
+              <select name="cate_select" id="cate_select" style="width: 20%">
+                <option value="">--Chọn danh mục--</option>
+                <option value="laptop">Laptop</option>
+                <option value="headphone">Headphone</option>
+              </select>
               <button class="btn" id="add_product_Btn">Thêm</button>
             </div>
             <table id="table_product">
@@ -338,7 +350,7 @@
     <!---End ADD product Modal-->
 
     <!--Update product Modal-->
-    <div id="update_product_Modal" class="modal" style="display: block">
+    <div id="update_product_Modal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
           <span class="update_product_close close">&times;</span>
