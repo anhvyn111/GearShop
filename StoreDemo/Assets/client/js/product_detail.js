@@ -13,3 +13,10 @@ document
     document.querySelector("#view-all-description").innerHTML =
       content.classList.contains("active") ? "view less" : "view all";
   });
+
+
+
+$('#btn-add-cart-detail').on('click', function (e) {
+    e.preventDefault();
+
+})

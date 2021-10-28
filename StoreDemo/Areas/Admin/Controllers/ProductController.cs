@@ -13,11 +13,17 @@ namespace StoreDemo.Areas.Admin.Controllers
     public class ProductController : BaseController
     {
         // GET: Admin/Product
-        public ActionResult Index(string search, int page = 1, int pageSize = 10)
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult DataTable(string search, int page = 1, int pageSize = 10)
         {
             var dao = new ProductDAO();
             var model = dao.ListAllPaging(search, page, pageSize);
-            return View(model);
+            ViewBag.Search = search;
+            return PartialView(model);
         }
         [HttpGet]
         public ActionResult Create()
@@ -27,55 +33,63 @@ namespace StoreDemo.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Product product, ProductImage productImage, List<HttpPostedFileBase> images)
+        public ActionResult Create(Product product, ProductImage productImage, List<HttpPostedFileBase> images, List<string> CheckBoxTags)
         {
-            if (ModelState.IsValid)
+            if (!String.IsNullOrEmpty(product.ProductName) && product.CategoryID != null && product.Price != null && !String.IsNullOrEmpty(product.Description) && !String.IsNullOrEmpty(product.Detail) && images.Count > 0)
             {
-                var user = (UserLogin)Session[CommonConstants.USER_SESSION];
                 var productDAO = new ProductDAO();
-                product.ModifiedDate = DateTime.Now;
-                product.Status = true;
-                product.ModifiedBy = user.username;
-                long productID = productDAO.Insert(product);
-                if (productID > 0)
+                bool checkName = productDAO.CheckNameExist(product.ProductName, 0);
+                if (!checkName)
                 {
-                    var imageDAO = new ProductImageDAO();
-                    string productFolder = "~/Images/Products/";
-                    productImage.ProductID = (int)productID;
-                    int i = imageDAO.CountImages();
-                    foreach (var file in images)
-                    {
-                        string extensionName = Path.GetExtension(file.FileName);
-                        string fileName = productID + "_" + i + extensionName;
-                        var serverSavePath = Path.Combine(Server.MapPath(productFolder) + fileName);
-                        file.SaveAs(serverSavePath);
-                        productImage.ImageName = fileName;
-                        imageDAO.Insert(productImage);
-                        i += 1;
-                    }
-                    return RedirectToAction("Index", "Product");    
+                    ModelState.AddModelError("", "Tên sản phẩm đã tồn tại.");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Vui lòng nhập đày đủ thông tin");
+                    var user = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
+                    product.ModifiedBy = user.username;
+                    string productFolder = "~/Images/Products/";
+                    foreach (var file in images)
+                    {
+                        if (file.ContentLength > 0 && file.FileName != null)
+                        {
+                            string extensionName = Path.GetExtension(file.FileName);
+                            string fileName = Guid.NewGuid().ToString() + "_" + extensionName;
+                            var serverSavePath = Path.Combine(Server.MapPath(productFolder) + fileName);
+                            file.SaveAs(serverSavePath);
+                            product.ProductImages.Add(new ProductImage { ImageName = fileName, ImagePath = productFolder });
+                        }
+                    }
+                    if (CheckBoxTags.Count > 0)
+                    {
+                        foreach (var tag in CheckBoxTags)
+                        {
+                            if(tag != "")
+                            {
+                                product.ProductTags.Add(new DataProvider.Framework.ProductTag { TagID = tag, ProductID = product.ProductID });
+                            }
+                        }
+                    }
+                    long productID = productDAO.Insert(product);
+                    return RedirectToAction("Index", "Product");
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+                ModelState.AddModelError("", "Vui lòng nhập đầy đủ thông tin");
             }
             SetViewBag();
-            return View("Index");
+            return View("Create");
         }
 
+        [HttpGet]
         public JsonResult LoadDetail(int id)
         {
-            ProductDAO productDAO = new ProductDAO();
-            var product = productDAO.ViewDetail(id);
+            var productDAO = new ProductDAO();
+            var product = productDAO.ViewDetailAdmin(id);
             var categoryDAO = new ProductCategoryDAO();
-            var category = categoryDAO.GetByID(product.Category);
-            var result = new { product = product, category = category};
-            return Json(result, JsonRequestBehavior.AllowGet);
+            var category = categoryDAO.GetByID(product.CategoryID);
+            var response = new { product = product, category = category};
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult LoadImages(int id)
@@ -86,31 +100,38 @@ namespace StoreDemo.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult UploadImages()
-        {
-            int sql = 0;
-            for (int i = 0; i < Request.Files.Count; i++)
+        public ActionResult UploadImages()
+        {     
+            bool result = false;
+            if (Request.Files.Count > 0)
             {
-                HttpPostedFileBase file = Request.Files[i];
-                int id = 29;
-                string path = Server.MapPath("~/Images/Product/");
+                int id = 1016;
+                var files = Request.Files;
                 ProductImageDAO dao = new ProductImageDAO();
-
                 int count = dao.CountImages();
-                ProductImage model = new ProductImage();
-                string extensionName = Path.GetExtension(file.FileName);
-                string fileName = id + "_" + count + extensionName;
-                var serverSavePath = Path.Combine(path + fileName);
-                file.SaveAs(serverSavePath);
-                model.ImageName = file.FileName;
-                model.ProductID = id;
-                sql = dao.Insert(model);
-                //foreach (var file in files)
-                //{
-                //}
+                //iterating through multiple file collection   
+                foreach (string str in files)
+                {
+                    HttpPostedFileBase file = Request.Files[str] as HttpPostedFileBase;
+                    //Checking file is available to save.  
+                    string path = Server.MapPath("~/Images/Products/");
+                    ProductImage model = new ProductImage();
+                    string extensionName = Path.GetExtension(file.FileName);
+                    string fileName = Guid.NewGuid() + "_" + count + extensionName;
+                    var serverSavePath = Path.Combine(path + fileName);
+                    file.SaveAs(serverSavePath);
+                    model.ImageName = file.FileName;
+                    model.ProductID = id;
+                    int status = dao.Insert(model);        
+                    count += 1;
+                }
+                result = true;
+            }    
+            else
+            {
+                result = false;
             }
-
-            return Json("Upload " + sql);
+            return Json(result);
         }
         public JsonResult DeleteImages(int id)
         {
@@ -128,29 +149,47 @@ namespace StoreDemo.Areas.Admin.Controllers
 
         [HttpGet]
         public ActionResult Edit(int id) {
-            var model = new ProductDAO().ViewDetail(id);
-            SetViewBag(model.Category);
+            var model = new ProductDAO().ViewDetailAdmin(id);
+            SetViewBag(model.CategoryID);
             return View(model);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Product product, List<string> CheckBoxTags = null)
         {
-            if (ModelState.IsValid)
+            if (!String.IsNullOrEmpty(product.ProductName) && product.Price != null && !String.IsNullOrEmpty(product.Description) && !String.IsNullOrEmpty(product.Detail))
             {
-                var user = (UserLogin)Session[CommonConstants.USER_SESSION];
                 var productDAO = new ProductDAO();
-                product.ModifiedDate = DateTime.Now;
-                product.ModifiedBy = user.username;
-                var updateProduct = productDAO.Update(product);
-                if (updateProduct == true)
+                bool checkName = productDAO.CheckNameExist(product.ProductName, product.ProductID);
+                if (!checkName)
                 {
-                    return RedirectToAction("Index", "Product");
+                    ModelState.AddModelError("", "Tên sản phẩm đã tồn tại.");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật sản phẩm thất bại");
+                    var user = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
+                    productDAO.DeleteAllProductTag(product.ProductID);
+                    if (CheckBoxTags.Count > 0)
+                    {
+                        foreach (var tag in CheckBoxTags)
+                        {
+                            if (tag != null)
+                            {
+                                product.ProductTags.Add(new DataProvider.Framework.ProductTag { TagID = tag, ProductID = product.ProductID });
+                            }
+                        }
+                    }
+                    var updateProduct = productDAO.Update(product);
+                    if (updateProduct == true)
+                    {
+                        return RedirectToAction("Index", "Product");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Cập nhật sản phẩm thất bại");
+                    }
+
                 }
             }
             else
@@ -161,12 +200,34 @@ namespace StoreDemo.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ChangeStatus(int id)
+        {
+            bool result = false;
+            var dao = new ProductDAO();
+            var product = dao.GetByID(id);
+            if(product != null)
+            {
+                if (product.Status == true)
+                {
+                    product.Status = false;
+                }
+                else
+                {
+                    product.Status = true;
+                }
+                result = dao.ChangeStatus(product);
+            }
+            return Json(result);
+        }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {
             var productDAO = new ProductDAO();
-            var status = productDAO.Delete(id);
-            if (status)
+            Product model = new Product();
+            var status = productDAO.Delete(model);
+            if (status == 1)
             {
                 var imageDAO = new ProductImageDAO();
                 List<ProductImage> imageList = imageDAO.ListImages(id);
@@ -192,7 +253,23 @@ namespace StoreDemo.Areas.Admin.Controllers
         public void SetViewBag(long? selectID = null)
         {
             var dao = new ProductCategoryDAO();
-            ViewBag.Category = new SelectList(dao.ListAll(), "ID", "CategoryName", selectID);
+            ViewBag.Category = new SelectList(dao.ListAll(), "CategoryID", "CategoryName", selectID);
+        }
+
+        public JsonResult ListEditTagsByCategory(int? id, int productID) {
+            var listAllTag = new TagDAO().ListEditTagsByCategory(id, productID);
+            return Json(listAllTag, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ListCreateTagsByCategory(int? id)
+        {
+            var listAllTag = new TagDAO().ListCreateTagsByCategory(id);
+            return Json(listAllTag, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult CheckNameExist(string name, int id)
+        {
+            bool status = new ProductDAO().CheckNameExist(name, id);
+            return Json(status, JsonRequestBehavior.AllowGet);
         }
     } 
 }   

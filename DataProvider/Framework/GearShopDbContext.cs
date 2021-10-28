@@ -13,12 +13,16 @@ namespace DataProvider.Framework
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<ProductOrder> ProductOrders { get; set; }
         public virtual DbSet<ProductTag> ProductTags { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,6 +47,11 @@ namespace DataProvider.Framework
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Customer>()
+                .HasMany(e => e.ProductOrders)
+                .WithRequired(e => e.Customer)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Menu>()
                 .Property(e => e.MetaTitle)
                 .IsUnicode(false);
@@ -52,9 +61,12 @@ namespace DataProvider.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.ProductTags)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
+                .Property(e => e.ModifiedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.UnsignName)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ProductCategory>()
                 .Property(e => e.MetaTitle)
@@ -64,12 +76,29 @@ namespace DataProvider.Framework
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<ProductImage>()
+                .Property(e => e.ImageName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductImage>()
+                .Property(e => e.ImagePath)
+                .IsUnicode(false);
+
             modelBuilder.Entity<ProductOrder>()
-                .Property(e => e.PhoneNumer)
+                .Property(e => e.PhoneNumber)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductOrder>()
+                .Property(e => e.PaymentMethod)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductTag>()
+                .Property(e => e.TagID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tag>()
                 .Property(e => e.TagID)
                 .IsUnicode(false);
         }

@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.ProductCategory>
+@using PagedList.Mvc
+
+<table id="table_cate">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên thể loại</th>
+            <th>Ngày cập nhật</th>
+            <th>Cập nhật bởi</th>
+            <th>Tùy chọn</th>
+        </tr>
+    </thead>
+    <tbody id="cate_body">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p id="cate_id">
+                        @item.CategoryID
+                    </p>
+                </td>
+                <td>
+                    <p id="cate_name">@item.CategoryName</p>
+                </td>
+                <td>
+                    <p>@String.Format("{0: dd/MM/yyyy}", @item.ModifiedDate)</p>
+                </td>
+                <td><p>@item.ModifiedBy</p></td>
+                <td>
+                    <button class="btn-edit-category" data-id="@item.CategoryID" onclick="ShowEditCateModal(@item.CategoryID)">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button id="delete_Btn">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="pageNavPosition_cate" class="pager-nav">
+    <div class="col-6">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
+    </div>
+    <div class="col-6 ms-auto">
+        <p class="text-end">
+            Trang @Model.PageNumber
+        </p>
+    </div>
+</div>
+

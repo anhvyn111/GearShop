@@ -1,0 +1,112 @@
+﻿@model List<DataProvider.Framework.Product>
+@{
+    ViewBag.Title = "Collection";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+@if (ViewBag.Error404 == null)
+{
+    @section clientTitle{
+        @ViewBag.CollectionTitle - GearShop
+    }
+    if (Model.Count < 1)
+    {
+        <div>
+            <div style="margin-top: 4rem; text-align: center; margin-bottom: 3rem;">
+                <h3>Chưa có sản phẩm cho bộ sưu tập "@ViewBag.CollectionTitle"</h3>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="bg-main section-product" style="margin-top: 3rem;">
+            <div class="container">
+                <div class="box">
+                    <div>
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <div class="box filter-toggle-box">
+                            <button class="btn-flat btn-hover" id="filter-toggle">
+                                filter
+                            </button>
+                        </div>
+                        <div class="box">
+                            <div class="row" id="products">
+                                <!---List Products -->
+                                <!-- Product item-->
+                                @{
+                                    var url = "/Images/Products/";
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-3 col-md-6 col-sm-12">
+                                            <div class="product-card">
+                                                <div class="product-card-img">
+                                                    <img src="@url@item.ProductImages.First().ImageName"
+                                                         alt=""
+                                                         id="product_main-img" />
+                                                </div>
+                                                <div class="product-card-info">
+                                                    <div class="product-btn">
+                                                        <a href="/san-pham/@item.MetaTitle">Xem chi tiết</a>
+                                                        <a href="/add-to-cart?id=@item.ProductID" class="btn-hover btn-cart-add"
+                                                                id="add_to_cart">
+                                                            <i class="bx bxs-cart-add"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="product-card-name">
+                                                        <a href="/san-pham/@item.MetaTitle" class="product-name">@item.ProductName</a>
+                                                    </div>
+                                                    @if (item.PromotionPrice > 0)
+                                                    {
+                                                        <div class="row">
+                                                            <div class="product-card-price">
+                                                                <span><del>@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></del></span>
+                                                            </div>
+                                                            <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.PromotionPrice)<sup>đ</sup></span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="margin-top:auto;" class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                <!-- END product ITEM -->
+                            </div>
+                        </div>
+                        <div class="box">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#"><i class="bx bxs-chevron-left"></i></a>
+                                </li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#"><i class="bx bxs-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    @section clientTitle{
+        @ViewBag.Error404 - GearShop
+    }
+    <div style="margin-top: 4rem; text-align: center; margin-bottom: 3rem;">
+        <img src="//theme.hstatic.net/1000262653/1000759281/14/404.png?v=112" />
+    </div>
+}
+

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section clientTitle{
+    Đăng nhập - GearShop
+}
+<div class="container section">
+    <div class="row" style="margin-top:3rem;">
+        <div class="col-6 col-sm-12">
+            <div class="col-8" style="margin-left: auto; margin-right: auto;">
+                @RenderPage("Login.cshtml")
+            </div>
+        </div>
+        <div class="col-6 col-sm-12">
+            <div class="col-8" style="margin-right: auto; margin-left: auto;">
+                @RenderPage("Register.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+

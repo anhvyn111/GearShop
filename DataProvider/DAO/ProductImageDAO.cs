@@ -9,10 +9,11 @@ namespace DataProvider.DAO
 {
     public class ProductImageDAO
     {
-        StoreDemoDbContext context = null;
+
+        GearShopDbContext context = null;
         public ProductImageDAO()
         {
-            context = new StoreDemoDbContext();
+            context = new GearShopDbContext();
         }
         public int Insert(ProductImage entity)
         {
@@ -26,6 +27,7 @@ namespace DataProvider.DAO
         }
         public ProductImage GetByID(int id)
         {
+            context.Configuration.ProxyCreationEnabled = false;
             return context.ProductImages.Find(id);
         }
         public void DeleteImage(ProductImage image)
@@ -36,7 +38,14 @@ namespace DataProvider.DAO
         }
         public int CountImages()
         {
-            return context.ProductImages.Max(x=>x.ImageID);
+            if (context.ProductImages.Count() == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return context.ProductImages.Max(x => x.ImageID);
+            }
         }
     }
 }

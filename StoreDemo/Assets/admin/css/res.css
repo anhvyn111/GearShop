@@ -1,0 +1,59 @@
+@media (max-width: 1280px) {
+    .navigation {
+        left: -300px;
+    }
+    .navigation.active {
+        left: 0;
+        width: 300px;
+    }
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        left: 300px;
+    }
+}
+@media (max-width: 750px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .details,
+    .details_cate {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .recentOrders,
+    .recentCate,
+    .recentBran {
+        overflow-x: auto;
+    }
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .form_col-25,
+    .form_col-75,
+    .form_col-50,
+    .modal-body input[type="submit"] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+@media (max-width: 480px) {
+    .navigation.active {
+        width: 100vw;
+        left: 0;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .toggle {
+        z-index: 1001;
+    }
+    .main.active .toggle {
+        color: var(--white-color);
+        right: 0;
+        left: initial;
+    }

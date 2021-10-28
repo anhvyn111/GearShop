@@ -9,12 +9,15 @@ namespace DataProvider.Framework
     [Table("Customer")]
     public partial class Customer
     {
-        [Key]
-        [Column(Order = 0)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customer()
+        {
+            Carts = new HashSet<Cart>();
+            ProductOrders = new HashSet<ProductOrder>();
+        }
+
         public int CustomerID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         [StringLength(100)]
         public string Email { get; set; }
 
@@ -32,5 +35,11 @@ namespace DataProvider.Framework
         public string Password { get; set; }
 
         public int? Status { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductOrder> ProductOrders { get; set; }
     }
 }

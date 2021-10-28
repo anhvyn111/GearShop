@@ -16,3 +16,5 @@ C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.xml
 C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.Mvc.xml
 C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\Common.dll
 C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\Common.pdb
+D:\GearShop\GearShop\DataProvider\obj\Debug\DataProvider.csprojAssemblyReference.cache
+D:\GearShop\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache

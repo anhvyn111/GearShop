@@ -13,6 +13,7 @@ namespace DataProvider.Framework
         public ProductCategory()
         {
             Products = new HashSet<Product>();
+            Tags = new HashSet<Tag>();
         }
 
         [Key]
@@ -37,5 +38,8 @@ namespace DataProvider.Framework
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }

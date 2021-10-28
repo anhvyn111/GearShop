@@ -1,0 +1,35 @@
+﻿@model List<DataProvider.Framework.Menu>
+<ul class="main-menu">
+    <li><a href="index.html"><box-icon name='home'></box-icon></a></li>
+    <!-- mega menu Lap -->
+    @foreach (var item in Model)
+    {
+        <li class="mega-dropdown">
+            <a href="/collection/@item.MetaTitle">
+                @item.MenuName
+                <i class="bx bxs-chevron-down"></i>
+            </a>
+            <div class="mega-content">
+                <div class="row">
+                    @foreach (var category in item.ProductCategories)
+                    {
+                        <div class="col-3 col-md-12">
+                            <div class="box">
+                                <a href="/collection/@category.MetaTitle"><h3>@category.CategoryName</h3></a>
+                                <ul>
+                                    @foreach (var tag in category.Tags.OrderBy(x=>x.TagName))
+                                    {
+                                        <li><a href="/collection/@tag.TagID">@tag.TagName</a></li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </li>
+    }
+
+</ul>

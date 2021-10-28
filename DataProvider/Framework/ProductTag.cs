@@ -9,15 +9,12 @@ namespace DataProvider.Framework
     [Table("ProductTag")]
     public partial class ProductTag
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ProductID { get; set; }
+        public int ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         [StringLength(200)]
         public string TagID { get; set; }
+
+        public int? ProductID { get; set; }
 
         public virtual Product Product { get; set; }
     }

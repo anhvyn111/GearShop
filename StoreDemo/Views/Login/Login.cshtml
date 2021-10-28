@@ -1,0 +1,14 @@
+﻿@model StoreDemo.Models.Login
+<h3 style="text-align: center;">Đăng nhập</h3>
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.LoginError != null)
+    {
+        @Html.ValidationSummary(true, null, new { @class = "alert" })
+    }
+    <input id="user-name" type="text" name="Email" class="input-field" placeholder="Email" required />
+    <input id="password" type="password" name="Password" class="input-field" placeholder="Mật khẩu" required />
+    <button type="submit" style="margin-top: 20px;" class="submit-btn">Đăng nhập</button>
+}
+

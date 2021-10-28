@@ -1,0 +1,69 @@
+﻿@model List<DataProvider.Framework.Product>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+@section clientTitle{
+    @ViewBag.Category - GearShop
+}
+<div class="bg-main section-product">
+    <div class="container">
+        <div class="box">
+            <div class="col-12 col-md-12">
+                <div class="box filter-toggle-box">
+                    <button class="btn-flat btn-hover" id="filter-toggle">
+                        filter
+                    </button>
+                </div>
+                <div class="box">
+                    <div class="row" id="products">
+                        <!---List Products -->
+                        <!-- Product item-->
+                        @{
+                            var url = "/Images/Products/";
+                            foreach (var item in Model)
+                            {
+                                <div class="col-4 col-md-6 col-sm-12">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <img src="@url@item.ProductImages.First().ImageName"
+                                                 alt=""
+                                                 id="product_main-img" />
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-btn">
+                                                <a href="/san-pham/@item.MetaTitle">Xem chi tiết</a>
+                                                <button class="btn-hover btn-cart-add"
+                                                        id="add_to_cart">
+                                                    <i class="bx bxs-cart-add"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-card-name">
+                                                <a href="/san-pham/@item.MetaTitle" id="product_name">@item.ProductName</a>
+                                            </div>
+                                            @if (item.PromotionPrice > 0)
+                                            {
+                                                <div class="product-card-price">
+                                                    <span><del>@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></del></span>
+                                                </div>
+                                                <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.PromotionPrice)</span><sup>đ</sup>
+                                            }
+                                            else
+                                            {
+                                                <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.Price)</span><sup>đ</sup>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <!-- END product ITEM -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

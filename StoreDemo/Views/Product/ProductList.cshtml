@@ -1,0 +1,235 @@
+﻿@model IEnumerable<DataProvider.Framework.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-main section-product">
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div class="col-3 filter-col" id="filter-col">
+                    <div class="box filter-toggle-box">
+                        <button class="btn-flat btn-hover" id="filter-close">
+                            close
+                        </button>
+                    </div>
+                    <div class="box">
+                        <span class="filter-header" id="main_cate"> LapTop</span>
+                        <ul class="filter-list">
+                            <span class="filtersub-header" id="sub_cate">
+                                Thương hiệu
+                            </span>
+                            <li><a href="#" id="sub_cate">HP</a></li>
+                            <li><a href="#" id="sub_cate">ACER</a></li>
+                            <li><a href="#" id="sub_cate">MAC</a></li>
+                            <li><a href="#">ASUS</a></li>
+                        </ul>
+                        <ul class="filter-list">
+                            <span class="filtersub-header">Giá tiền</span>
+                            <li><a href="#">15 triệu</a></li>
+                            <li><a href="#">20 triệu</a></li>
+                            <li><a href="#">20 triệu</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-9 col-md-12">
+                    <div class="box filter-toggle-box">
+                        <button class="btn-flat btn-hover" id="filter-toggle">
+                            filter
+                        </button>
+                    </div>
+                    <div class="box">
+                        <div class="row" id="products">
+                            <!---List Products -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                            <!-- Product item-->
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
+                                             alt=""
+                                             id="product_main-img" />
+                                    </div>
+                                    <div class="product-card-info">
+                                        <div class="product-btn">
+                                            <a href="./product-detail.html">Xem chi tiết</a>
+                                            <button class="btn-hover btn-cart-add"
+                                                    id="add_to_cart">
+                                                <i class="bx bxs-cart-add"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="product-card-name">
+                                            <a href="" id="product_name">JBL Quantum 400</a>
+                                        </div>
+                                        <div class="product-card-price">
+                                            <span><del>$300</del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">200</span><sup>đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END product ITEM -->
+                        </div>
+                    </div>
+                    <div class="box">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#"><i class="bx bxs-chevron-left"></i></a>
+                            </li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#"><i class="bx bxs-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

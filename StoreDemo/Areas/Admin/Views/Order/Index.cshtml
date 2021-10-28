@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="details_table">
+    <!-- Orders table-->
+    <div class="recent_table">
+        <div class="cardHeader">
+            <h2>Đơn hàng</h2>
+            <input class="search_box"
+                   type="text"
+                   placeholder="Tìm.."
+                   id="search_order"
+                   style="width: 40%" />
+            <button class="btn" id="add_order_Btn">Thêm</button>
+        </div>
+        <table id="table">
+            <thead>
+                <tr>
+                    <td>STT</td>
+                    <td>ID_Đơn hàng</td>
+                    <td>Tên khách hàng</td>
+                    <td>Địa chỉ</td>
+                    <td>Trạng thái</td>
+                    <td>Thành tiền</td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+            </thead>
+            <tbody id="order_body">
+                <tr>
+                    <td>1</td>
+                    <td><p id="order_id">110011</p></td>
+                    <td>
+                        <p id="order_cus">
+                            abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                        </p>
+                    </td>
+                    <td>
+                        <p id="order_add">
+                            abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
+                        </p>
+                    </td>
+
+                    <td id="order_status">
+                        <span class="status yellow">Shipping</span>
+                    </td>
+                    <td>
+                        <p id="order_price">10.0000</p>
+                    </td>
+                    <td>
+                        <button id="update_order_Btn">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button id="delete_Btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="pageNavPosition" class="pager-nav"></div>
+    </div>
+</div>
+
+

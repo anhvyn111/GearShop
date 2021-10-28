@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var listNewProduct = (List<DataProvider.Framework.Product>)ViewBag.ListNewProduct;
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+@section clientTitle{
+    Cửa hàng vi tính GearShop
 }
 
 <!--main-->
@@ -29,39 +35,56 @@
 <!--- hot deal product list -->
 <div class="section">
     <div class="container">
-        <div class="section-header section-hotdeal">Hot Deal</div>
+        <div class="section-header section-hotdeal">Sản phẩm mới</div>
         <div class="row" id="hot_deal-product">
             <!-- list Product item-->
 
             <ul class="cs-hidden autoWidth">
-                <li class="item-a">
-                    <!-- Product item-->
-                    <div class="">
-                        <div class="product-card">
-                            <div class="product-card-img">
-                                <img src="https://product.hstatic.net/1000026716/product/ban-phim-chuyen-van-phong-logitech-k120-1_6bee6c2e4acd4130bdca6627f67f6aa3.jpg"
-                                     alt="" />
-                            </div>
-                            <div class="product-card-info">
-                                <div class="product-btn">
-                                    <a href="./product-detail.html">Xem chi tiết</a>
-                                    <button class="btn-hover btn-cart-add">
-                                        <i class="bx bxs-cart-add"></i>
-                                    </button>
+                <!-- Product item-->
+                @foreach (var item in listNewProduct)
+                {
+                    var url = "/san-pham/" + @item.MetaTitle;
+                    <li class="item-a">
+                        <div class="">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <a  href="@url">
+                                        <img style="width:256px; height:256px;" src="~/Images/Products/@item.ProductImages.First().ImageName"
+                                             alt="" />
+                                    </a>     
                                 </div>
-
-                                <div class="product-card-name">
-                                    <a href="">JBL Quantum 400</a>
+                                <div class="product-card-info">
+                                    <div class="product-btn">
+                                        <a href="@url">Xem chi tiết</a>
+                                        <a href="/add-to-cart?id=@item.ProductID" class="btn-hover btn-cart-add">
+                                            <i class="bx bxs-cart-add"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-card-name">
+                                        <a href="@url" class="product-name">@item.ProductName</a>
+                                    </div>
+                                    @if (item.PromotionPrice > 0)
+                                    {
+                                        <div class="row">
+                                            <div class="product-card-price">
+                                                <span><del>@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></del></span>
+                                            </div>
+                                            <span class="curr-price">@String.Format(info, "{0:0,0}", item.PromotionPrice)<sup>đ</sup></span>
+                                        </div>                           
+                                    }
+                                    else
+                                    {
+                                        <div class="product-card-price">
+                                            <span></span>
+                                        </div>
+                                        <span class="curr-price">@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></span>
+                                    }
                                 </div>
-                                <div class="product-card-price">
-                                    <span><del>$300</del></span>
-                                </div>
-                                <span class="curr-price">$200</span>
                             </div>
                         </div>
-                    </div>
-                    <!-- END product ITEM -->
-                </li>
+                    </li>
+                }
+                <!-- END product ITEM -->
             </ul>
 
             <!-- END product ITEM -->

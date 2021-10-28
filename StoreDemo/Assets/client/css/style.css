@@ -1,0 +1,8 @@
+﻿.product-name {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+    font-size: 17px;
+}

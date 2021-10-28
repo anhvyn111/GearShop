@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -59,22 +60,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DAO\CartDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\ProductCategoryDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ProductImageDAO.cs" />
+    <Compile Include="DAO\TagDAO.cs" />
     <Compile Include="Framework\Admin.cs" />
+    <Compile Include="Framework\Cart.cs" />
     <Compile Include="Framework\Customer.cs" />
-    <Compile Include="Framework\ImportGood.cs" />
-    <Compile Include="Framework\ImportProduct.cs" />
+    <Compile Include="Framework\GearShopDbContext.cs" />
     <Compile Include="Framework\Menu.cs" />
+    <Compile Include="Framework\OrderDetail.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\ProductCategory.cs" />
     <Compile Include="Framework\ProductImage.cs" />
+    <Compile Include="Framework\ProductOrder.cs" />
     <Compile Include="Framework\ProductTag.cs" />
-    <Compile Include="Framework\StoreDemoDbContext.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
       <Project>{9541228a-6795-4881-a9a7-b705478869b2}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

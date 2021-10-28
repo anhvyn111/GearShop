@@ -1,0 +1,149 @@
+﻿@model DataProvider.Framework.Product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+@section clientTitle{
+    @Model.ProductName
+    }
+<div class="bg-main container">
+    <div class="container">
+        <div class="row product-row">
+            <div class="col-5 col-md-12">
+                <div class="product-img" id="product-img">
+                    <img src="/Images/Products/@Model.ProductImages.First().ImageName"
+                         alt=""
+                         id="product_main-img" />
+                </div>
+                <div class="box">
+                    <div class="product-img-list">
+                        @foreach (var item in Model.ProductImages)
+                        {
+                            <div class="product-img-item" id="product-img-item">
+                                <img src="~/Images/Products/@item.ImageName"
+                                     alt="" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 col-md-12">
+                <div class="product-info">
+                    <h1 id="product_name">@Model.ProductName</h1>
+
+                    @if (Model.Quanlity > 0)
+                    {
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">
+                                Tình trạng:
+                                <a class="" style="color: darkgreen;" id="product-brand">Còn hàng</a>
+                            </span>
+                        </div>
+
+                        <p class="product-description" id="product-description">
+                            @Model.Description
+                        </p>
+                        if (Model.PromotionPrice > 0)
+                        {
+                            <div class="product-card-price">
+                                <span><del>@String.Format(info, "{0:0,0}", Model.Price)<sup>đ</sup></del></span>
+                            </div>
+                            <div class="product-info-price" id="product-info-price">
+                                <span id="product_price">@String.Format(info, "{0:0,0}", Model.PromotionPrice)</span><sup>đ</sup>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="product-card-price">
+                            </div>
+                            <div class="product-info-price" id="product-info-price">
+                                <span id="product_price">@String.Format(info, "{0:0,0}", Model.Price)</span><sup>đ</sup>
+                            </div>
+                        }
+                        <div>
+                            <a href="/add-to-cart?id=@Model.ProductID" class="btn-flat btn-hover" id="add_to_cart">
+                                Thêm vào vỏ hàng
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">
+                                Tình trạng:
+                                <a class="" style="color: darkred;" id="product-brand">Hết hàng</a>
+                            </span>
+                        </div>
+                        <p class="product-description" id="product-description">
+                            @Model.Description
+                        </p>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <button class="btn-flat btn-hover btn-view-description"
+                    id="view-all-description">
+                Xem th
+            </button>
+            @Html.Raw(Model.Detail)
+        </div>
+
+        <div class="box">
+            <div class="box-header related_content">
+                <h2>Sản phẩm tương tự</h2>
+                <a href="">xem thêm</a>
+            </div>
+            <div class="row" id="related-products">
+                <!-- Product item-->
+
+                @{
+                    var relatedProducts = (List<DataProvider.Framework.Product>)ViewBag.RelatedProducts;
+                    var url = "/Images/Products/";
+                    foreach (var item in relatedProducts)
+                    {
+                        <div class="col-4 col-md-6 col-sm-12">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <img href ="/san-pham/@item.MetaTitle" src="@url@item.ProductImages.First().ImageName"
+                                         alt=""
+                                         id="product_main-img" />
+                                </div>
+                                <div class="product-card-info">
+                                    <div class="product-btn">
+                                        <a href="/san-pham/@item.MetaTitle">Xem chi tiết</a>
+                                        <button class="btn-hover btn-cart-add" id="add_to_cart">
+                                            <i class="bx bxs-cart-add"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="product-card-name">
+                                        <a href="/san-pham/@item.MetaTitle" id="product_name">@item.ProductName</a>
+                                    </div>
+                                    @if (item.PromotionPrice > 0)
+                                    {
+                                        <div class="product-card-price">
+                                            <span><del>@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></del></span>
+                                        </div>
+                                        <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.PromotionPrice)</span><sup>đ</sup>
+                                    }
+                                    else
+                                    {
+                                        <div class="product-card-price">
+                                        </div>
+                                        <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.Price)</span><sup>đ</sup>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                <!-- END product ITEM -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Assets/client/js/product_detail.js"></script>

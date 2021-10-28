@@ -9,7 +9,7 @@ namespace StoreDemo.Common
 {
     public static class StringHelper
     {
-        public static string ToUnsignString(string input)
+        public static string ToUnsignMeta(string input)
         {
             input = input.Trim();
             for (int i = 0x20; i < 0x30; i++)
@@ -22,6 +22,7 @@ namespace StoreDemo.Common
             input = input.Replace(";", "-");
             input = input.Replace(":", "-");
             input = input.Replace("  ", "-");
+            input = input.Replace("|", "");
             Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
             string str = input.Normalize(NormalizationForm.FormD);
             string str2 = regex.Replace(str, string.Empty).Replace('đ', 'd').Replace('Đ', 'D');
@@ -33,7 +34,25 @@ namespace StoreDemo.Common
             {
                 str2 = str2.Replace("--", "-").ToLower();
             }
+            str2 = str2.ToLower();
             return str2;
+        }
+        public static string ToUnSignString(string s)
+        {
+            s = s.ToLower();
+            string stFormD = s.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+            for (int ich = 0; ich < stFormD.Length; ich++)
+            {
+                System.Globalization.UnicodeCategory uc = System.Globalization.CharUnicodeInfo.GetUnicodeCategory(stFormD[ich]);
+                if (uc != System.Globalization.UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(stFormD[ich]);
+                }
+            }
+            sb = sb.Replace('Đ', 'D');
+            sb = sb.Replace('đ', 'd');
+            return (sb.ToString().Normalize(NormalizationForm.FormD));
         }
     }
 }

@@ -12,7 +12,7 @@ namespace StoreDemo.Common
         // GET: Base
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+            var session = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
             if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Login", action = "Index", Area = "Admin" }));

@@ -16,7 +16,7 @@ namespace StoreDemo.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if(Session[CommonConstants.USER_SESSION] == null)
+            if(Session[CommonConstants.ADMIN_SESSION] == null)
             {
                 return View();
             }
@@ -31,15 +31,14 @@ namespace StoreDemo.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dao = new AccountDAO();
+                var dao = new AdminDAO();
                 var result = dao.Login(model.username, Encryptor.MD5Hash(model.password));
                 if (result == 1)
                 {
-                    var userSession = new UserLogin();
+                    var userSession = new AdminLogin();
                     var user = dao.GetByUsername(model.username);
                     userSession.username = user.Username;
-                    userSession.userID = user.AdminID;
-                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    Session.Add(CommonConstants.ADMIN_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }    
                 else if(result == 0)
@@ -60,8 +59,12 @@ namespace StoreDemo.Areas.Admin.Controllers
         }
         public ActionResult Logout()
         {
-            Session[CommonConstants.USER_SESSION] = null;
-            return RedirectToAction("Index", "Login");
+            Session[CommonConstants.ADMIN_SESSION] = null;
+            if(Session[CommonConstants.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View();
         }
     }
 }

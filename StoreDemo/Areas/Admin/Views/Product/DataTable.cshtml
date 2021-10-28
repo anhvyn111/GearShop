@@ -1,0 +1,66 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
+@using PagedList.Mvc
+
+
+<table id="table_product">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th style="width: 60%;">Tên sản phẩm</th>
+            <th>  Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="product_body">
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.ProductID">
+                <td>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                @if (item.Status == true)
+                {
+                    <td><a class="btn btn-success align-content-center">Đã kích hoạt</a></td>
+                }
+                else
+                {
+                    <td><a class="btn btn-danger align-content-center">Đã khóa</a></td>
+
+                }
+                <td>
+                    <a type="button" onclick="ChangeStatus(@item.ProductID)" data-id="@item.ProductID" id="read_product_Btn">
+                        @if (item.Status)
+                        {
+                            <i class="fas fa-eye-slash"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-eye"></i>
+                        }
+                    </a>
+                    <button class="btn-detail-product" style="margin-right: 7px;" onclick="DetailProduct(@item.ProductID)">
+                        <i class="fas fa-info"></i>
+                    </button>
+                    <a href="~/Admin/san-pham/chinh-sua/@item.ProductID" class="btn-edit-product" data-id="@item.ProductID">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a type="button" class="btn-manage-images" data-id="@item.ProductID">
+                        <i class="fas fa-folder-open"></i>
+                    </a>
+                    <a type="button" class="btn-manage-images" data-id="@item.ProductID">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="pageNavPosition" class="pager-nav row">
+    <div class="col-6">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = ViewBag.Search }))
+    </div>
+    <div class="col-6 ms-auto">
+        <p class="text-end">
+            Trang @Model.PageNumber
+        </p>
+    </div>
+</div>

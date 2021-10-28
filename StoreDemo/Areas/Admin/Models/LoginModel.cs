@@ -12,6 +12,5 @@ namespace StoreDemo.Areas.Admin.Models
         public string username { set; get; }
         [Required(ErrorMessage ="Vui lòng nhập mật khẩu")]
         public string password { set; get; }
-        public bool rememberMe { set; get; }
     }
 }

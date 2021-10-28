@@ -1,0 +1,16 @@
+﻿@model StoreDemo.Models.Register
+
+<h3 style="text-align: center;">Đăng ký</h3>
+@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.RegisterError != null)
+    {
+        @Html.ValidationSummary(true, null, new { @class = "alert" })
+    }
+    <input type="text" class="input-field" name="FullName" placeholder="Họ và tên" required />
+    <input type="email" class="input-field" name="Email" placeholder="Email" required />
+    <input type="password" class="input-field" name="Password" placeholder="Mật khẩu" required />
+    <input type="password" class="input-field" name="ConfirmPassword" placeholder="Xác nhận mật khẩu" required />
+    <button type="submit" style="margin-top: 20px;" class="submit-btn">Đăng ký</button>
+}
