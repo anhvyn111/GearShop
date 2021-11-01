@@ -174,7 +174,7 @@ namespace DataProvider.DAO
 
         public List<Product> ListNewProduct(int top)
         {
-            var listNewProduct = context.Products.Where(p=>p.Status == true).OrderByDescending(x => x.ModifiedDate).Take(top).Include(i => i.ProductImages).ToList();
+            var listNewProduct = context.Products.Where(p=>p.Status == true && p.Quanlity > 0).OrderByDescending(x => x.ModifiedDate).Take(top).Include(i => i.ProductImages).ToList();
             return listNewProduct;
         }
         public bool CheckNameExist(string name, int id)
@@ -195,7 +195,7 @@ namespace DataProvider.DAO
         // Danh sách sản phẩm tương tự
         public List<Product> ListRelatedProduct(int? categoryID, int productID)
         {
-            return context.Products.Where(x => x.CategoryID == categoryID && x.ProductID != productID).Include(x => x.ProductImages).ToList();
+            return context.Products.Where(x => x.CategoryID == categoryID && x.ProductID != productID && x.Quanlity > 0 && x.Status == true).Include(x => x.ProductImages).ToList();
         }
 
         // Danh sách sản phẩm theo thể loại Menu
@@ -204,7 +204,7 @@ namespace DataProvider.DAO
             List<Product> collection = (from p in context.Products
                                         join pc in context.ProductCategories on p.CategoryID equals pc.CategoryID
                                         join m in context.Menus on pc.MenuID equals m.MenuID
-                                        where m.MetaTitle == metaTitle
+                                        where m.MetaTitle == metaTitle && p.Quanlity > 0 && p.Status == true
                                         select p).ToList();
             foreach (var item in collection)
             {
@@ -218,7 +218,7 @@ namespace DataProvider.DAO
         {
             List<Product> collection = (from p in context.Products
                                         join pc in context.ProductCategories on p.CategoryID equals pc.CategoryID
-                                        where pc.MetaTitle == metaTitle
+                                        where pc.MetaTitle == metaTitle && p.Quanlity > 0 && p.Status == true
                                         select p).ToList();
             foreach (var item in collection)
             {
@@ -233,7 +233,7 @@ namespace DataProvider.DAO
             List<Product> collection = (from p in context.Products
                                         join pt in context.ProductTags on p.ProductID equals pt.ProductID
                                         join t in context.Tags on pt.TagID equals t.TagID
-                                        where t.TagID == metaTitle
+                                        where t.TagID == metaTitle && p.Quanlity > 0 && p.Status == true
                                         select p).ToList();
             foreach (var item in collection)
             {
@@ -242,6 +242,27 @@ namespace DataProvider.DAO
             }
             return collection;
         }
-
+        public bool UpdateQuanlity(List<Cart> carts)
+        {
+            foreach(var item in carts)
+            {
+                var product = context.Products.Find(item.ProductID);
+                product.Quanlity -= item.Quanlity;
+                context.SaveChanges();
+            }
+            return true;
+        }
+        public bool CheckQuanlity(int productID, int? quanlity)
+        {
+            var product = context.Products.Find(productID);
+            if(product != null)
+            {
+                if(product.Quanlity >= quanlity)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 } 

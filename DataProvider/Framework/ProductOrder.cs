@@ -34,7 +34,7 @@ namespace DataProvider.Framework
         [StringLength(10)]
         public string PaymentMethod { get; set; }
 
-        public DateTime? OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
         public int CustomerID { get; set; }
 

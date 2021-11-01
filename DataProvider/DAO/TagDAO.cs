@@ -24,12 +24,11 @@ namespace DataProvider.DAO
         {
             List<ProductTagModel> list = new List<ProductTagModel>();
             var query = from Tag in context.Tags
-                        join ProductTag in context.ProductTags on new { TagID = Tag.TagID, ProductID = productID } equals new { TagID = ProductTag.TagID, ProductID = ProductTag.ProductID } into gj
-                        from subtag in gj.DefaultIfEmpty()
-                    where Tag.CategoryID == categoryID
-                    select new { TagID = Tag.TagID, TagName = Tag.TagName, ProductID = subtag == null ? 0 : subtag.ProductID };
+                        from ProductTag in context.ProductTags.Where(x => Tag.TagID == x.TagID && x.ProductID == productID).DefaultIfEmpty()
+                        where Tag.CategoryID == categoryID
+                        select new { TagID = Tag.TagID, TagName = Tag.TagName, ProductID = ProductTag.ProductID == null ? 0 : ProductTag.ProductID };
 
-            foreach(var item in query)
+            foreach (var item in query)
             {
                 list.Add(new ProductTagModel { TagID = item.TagID, TagName = item.TagName, ProductID = item.ProductID});
             }

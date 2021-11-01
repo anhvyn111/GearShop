@@ -45,7 +45,7 @@ namespace DataProvider.Framework
 
         public string ProductTag { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public string UnsignName { get; set; }
 

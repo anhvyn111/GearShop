@@ -15,7 +15,7 @@ namespace DataProvider.Framework
 
         public int? Quanlity { get; set; }
 
-        public int? Price { get; set; }
+        public long? Price { get; set; }
 
         public int? OrderID { get; set; }
 

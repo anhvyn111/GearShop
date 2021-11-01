@@ -18,6 +18,7 @@
           referrerpolicy="no-referrer" />
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- app css -->
     <link rel="stylesheet" href="/Assets/client/css/grid.css" />
@@ -27,200 +28,167 @@
     <link href="~/Assets/client/css/style.css" rel="stylesheet" />
     <title>@RenderSection("clientTitle", required: true)</title>
 </head>
-    <body>
-        <!-- header -->
-        <header>
-            <!-- mobile menu -->
-            <div class="mobile-menu bg-second">
-                <a href="#" class="mb-logo">GearShop</a>
-                <span class="mb-menu-toggle" id="mb-menu-toggle">
-                    <i class="bx bx-menu"></i>
-                </span>
+<body>
+    <!-- header -->
+    <header>
+        <!-- mobile menu -->
+        <div class="mobile-menu bg-second">
+            <a href="#" class="mb-logo">GearShop</a>
+            <span class="mb-menu-toggle" id="mb-menu-toggle">
+                <i class="bx bx-menu"></i>
+            </span>
+        </div>
+        <!-- end mobile menu -->
+        <!-- main header -->
+        <div class="header-wrapper" id="header-wrapper">
+            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+                <i class="bx bx-x"></i>
+            </span>
+            <!-- mid header -->
+            <div class="bg-main">
+                @{ Html.RenderAction("Header", "Home");}
             </div>
-            <!-- end mobile menu -->
-            <!-- main header -->
-            <div class="header-wrapper" id="header-wrapper">
-                <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
-                    <i class="bx bx-x"></i>
-                </span>
-                <!-- mid header -->
-                <div class="bg-main">
-                    <div class="mid-header container">
-                        <a href="/" class="logo">GearShop</a>
-                        <div class="search">
-                            <input type="text" placeholder="Search" />
-                            <i class="bx bx-search-alt"></i>
-                        </div>
-                        <ul class="user-menu">
-                            <li>
-                                @{ var session = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];}
-                                @if (session != null)
-                                {
-                                    <a href="/dang-nhap" type="button" style="border: none; background: transparent">
-                                        <i class="bx bx-user-circle"></i>
-                                    </a>
-                                    <div class="dropdown-content">
-                                        <p>Xin chào, <b>@session.FullName</b></p>
-                                        <a href="/tai-khoan">Thông tin tài khoản</a>
-                                        <a href="/Customer/Logout">Đăng xuất</a>
-                                    </div>
-                                }
-                                <a href="/dang-nhap" style="border: none; background: transparent"
-                                   id="myBtn">
-                                    <i class="bx bx-user-circle"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/vo-hang" class="cart-content">
-                                    <i class="bx bx-cart"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <!-- end mid header -->
+            <!-- bottom header -->
+            <div class="bg-second">
+                <div class="bottom-header container">
+                    @{ Html.RenderAction("Menu", "Home");}
                 </div>
-                <!-- end mid header -->
-                <!-- bottom header -->
-                <div class="bg-second">
-                    <div class="bottom-header container">
-                        @{ Html.RenderAction("Menu", "Home");}
-                    </div>
-                </div>
-                <!-- end bottom header -->
             </div>
-        </header>
-        <main>
-            @RenderBody()
-        </main>
-        <!---end mouse-->
-        <!---end main-->
-        <!-- footer -->
-        <footer class="bg-second" id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Show room HCM</h3>
-                        <ul class="menu">
-                            <li>
-                                <a href="#">
-                                    - Địa chỉ 1: 78-80-82 Hoàng Hoa Thám, Phường 12, Quận Tân
-                                    Bình.
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    - Địa chỉ 2: 189 Cống Quỳnh, Phường Nguyễn Cư Trinh, Quận
-                                    1.
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Show room HN</h3>
-                        <ul class="menu">
-                            <li>
-                                <a href="#">
-                                    - Địa chỉ : 37 Ngõ 121 Thái Hà, Phường Trung Liệt, Quận Đống
-                                    Đa.
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Contact us</h3>
-                        <ul class="menu">
-                            <li>
-                                <a href="#">
-                                    Gọi mua hàng:<br />
-                                    <span style="font-weight: bold">1800 6975</span>
-                                </a>
-                            </li>
+            <!-- end bottom header -->
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <!---end mouse-->
+    <!---end main-->
+    <!-- footer -->
+    <footer class="bg-second" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Show room HCM</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                - Địa chỉ 1: 78-80-82 Hoàng Hoa Thám, Phường 12, Quận Tân
+                                Bình.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                - Địa chỉ 2: 189 Cống Quỳnh, Phường Nguyễn Cư Trinh, Quận
+                                1.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Show room HN</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                - Địa chỉ : 37 Ngõ 121 Thái Hà, Phường Trung Liệt, Quận Đống
+                                Đa.
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6">
+                    <h3 class="footer-head">Contact us</h3>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                Gọi mua hàng:<br />
+                                <span style="font-weight: bold">1800 6975</span>
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#">
+                                Hỗ trợ khách hàng:<br />
+                                <span style="font-weight: bold">1800 6173</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="contact">
+                        <h3 class="contact-header">GearShop</h3>
+                        <ul class="contact-socials">
                             <li>
                                 <a href="#">
-                                    Hỗ trợ khách hàng:<br />
-                                    <span style="font-weight: bold">1800 6173</span>
+                                    <i class="bx bxl-facebook-circle"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-instagram-alt"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="bx bxl-twitter"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-3 col-md-6 col-sm-12">
-                        <div class="contact">
-                            <h3 class="contact-header">GearShop</h3>
-                            <ul class="contact-socials">
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook-circle"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="subscribe">
-                            <input type="email" placeholder="ENTER YOUR EMAIL" />
-                            <button>subscribe</button>
-                        </div>
+                    <div class="subscribe">
+                        <input type="email" placeholder="ENTER YOUR EMAIL" />
+                        <button>subscribe</button>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- end footer -->
-        <script src="/Assets/client/js/app.js"></script>
-        <script src="/Assets/client/js/slider.js"></script>
-        <script src="/Assets/client/js/carosel.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-                crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
-                integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
-                crossorigin="anonymous"
-                referrerpolicy="no-referrer"></script>
-        <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
+        </div>
+    </footer>
+    <!-- end footer -->
+    <script src="/Assets/client/js/cart.js"></script>
+    <script src="/Assets/client/js/app.js"></script>
+    <script src="/Assets/client/js/slider.js"></script>
+    <script src="/Assets/client/js/carosel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
+            integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            loop: true,
+        });
+    </script>
+    <script>
+        // swiper
+        $(document).ready(function () {
+            $(".autoWidth").lightSlider({
+                autoWidth: true,
+                loop: false,
+                onSliderLoad: function () {
+                    $(".autoWidth").removeClass("cS-hidden");
                 },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                loop: true,
             });
-        </script>
-        <script>
-            // swiper
-            $(document).ready(function () {
-                $(".autoWidth").lightSlider({
-                    autoWidth: true,
-                    loop: false,
-                    onSliderLoad: function () {
-                        $(".autoWidth").removeClass("cS-hidden");
-                    },
-                });
-            });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>

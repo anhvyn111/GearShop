@@ -1,4 +1,6 @@
 ﻿using DataProvider.DAO;
+using DataProvider.Framework;
+using StoreDemo.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,30 @@ namespace StoreDemo.Controllers
         {
             var menus = new MenuDAO().LoadMenu();
             return PartialView(menus);
+        }
+        
+        public ActionResult Header()
+        {
+            var customer = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
+            var list = new List<Cart>();
+            if (customer != null)
+            {
+                list = new CartDAO().ListCart(customer.ID);
+            }
+            else
+            {
+                list = (List<Cart>)Session[Common.CommonConstants.CART_SESSION];
+            }
+            if (list != null)
+            {
+                int? count = 0;
+                foreach (var item in list)
+                {
+                    count += item.Quanlity;
+                }
+                ViewBag.CartItemAmount = count;
+            }
+            return PartialView();
         }
     }
 }

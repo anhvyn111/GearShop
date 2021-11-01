@@ -1,0 +1,41 @@
+﻿@{ 
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    long? price = 0;
+    long? totalPrice = 0;
+}
+@model List<DataProvider.Framework.Cart>
+<h2>Đơn hàng</h2>
+<table id="checkout_cart">
+    @foreach (var item in Model)
+    {
+
+        if (item.Product.PromotionPrice > 0)
+        {
+            price = item.Product.PromotionPrice;
+        }
+        else
+        {
+            price = item.Product.Price;
+        }
+        totalPrice += price * item.Quanlity;
+        <tr>
+            <td>
+                <span id="cart_product_name_pay">@item.Product.ProductName</span>
+                <div class="checkout_info">
+
+                    <span id="cart_product_price_pay">@String.Format(info, "{0:0,0}", price)</span>
+                    <span> x </span> <span id="quantity_of_product">@item.Quanlity</span>
+                </div>
+            </td>
+            <td>
+                <span id="checkout_product_total">@String.Format(info, "{0:0,0}", price * item.Quanlity)</span>
+            </td>
+        </tr>
+
+    }
+</table>
+<div class="price-total">
+    <p>
+        Thành tiền: <span id="cart_price-total">@String.Format(info, "{0:0,0}", totalPrice)</span><sup>đ</sup>
+    </p>
+</div>

@@ -14,6 +14,13 @@ namespace StoreDemo.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+            
+            ViewBag.ErrorMessage = TempData["errorMess"] as string;
+            return View();
+        }
+        
+        public ActionResult DataTable()
+        {
             var list = new List<Cart>();
             if (Session[CommonConstants.CUSTOMER_SESSION] != null)
             {
@@ -23,15 +30,14 @@ namespace StoreDemo.Controllers
             else
             {
                 var cart = Session[CommonConstants.CART_SESSION];
-                
+
                 if (cart != null)
                 {
                     list = (List<Cart>)cart;
                 }
-            }       
-            return View(list);
+            }
+            return PartialView(list);
         }
-
         public ActionResult Add(int id)
         {
             var customerSession = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
@@ -61,7 +67,10 @@ namespace StoreDemo.Controllers
                             {
                                 if(item.Product.ProductID == id)
                                 {
-                                    item.Quanlity += 1;
+                                    if(item.Product.Quanlity > item.Quanlity)
+                                    {
+                                        item.Quanlity += 1;
+                                    }
                                 }
                             }
                         }
@@ -87,8 +96,11 @@ namespace StoreDemo.Controllers
                         var checkCart = cartDAO.CheckItem(product.ProductID, customerSession.ID);
                         if (checkCart != null)
                         {
-                            checkCart.Quanlity += 1;
-                            resultCart = cartDAO.Update(checkCart);
+                            if(product.Quanlity > checkCart.Quanlity)
+                            {
+                                checkCart.Quanlity += 1;
+                                resultCart = cartDAO.Update(checkCart);
+                            }
                         }
                         else
                         {
@@ -103,6 +115,65 @@ namespace StoreDemo.Controllers
                 }
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var customerSession = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
+            bool result = false;
+            if(customerSession != null)
+            {
+                result = new CartDAO().DeleteByProductID(id, customerSession.ID);
+            }
+            else
+            {
+                var list = (List<Cart>)Session[CommonConstants.CART_SESSION];
+                foreach(var item in list)
+                {
+                    if(item.ProductID == id)
+                    {
+                        list.Remove(item);
+                        result = true;
+                        break;
+                    }               
+                }
+                Session[CommonConstants.CART_SESSION] = list;
+            }
+            return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateQuanlity(int productID, int? quanlity)
+        {
+            bool result = false;
+            var dao = new CartDAO();
+            var customerSession = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
+            var checkQuanlity = new ProductDAO().CheckQuanlity(productID, quanlity);
+            if (!checkQuanlity || quanlity == null)
+            {
+                quanlity = 1;
+            }
+            if (customerSession != null)
+            {      
+                dao.UpdateQuanlityByProductID(productID, customerSession.ID, quanlity);
+                result = true;
+            }
+            else
+            {
+                var list = (List<Cart>)Session[CommonConstants.CART_SESSION];            
+                foreach (var item in list)
+                {
+                    if (item.ProductID == productID)
+                    {
+                        item.Quanlity = quanlity;
+                        result = true;
+                        break;
+                    }
+                }
+                Session[CommonConstants.CART_SESSION] = list;
+            }
+            return Json(result);
         }
     }
 }

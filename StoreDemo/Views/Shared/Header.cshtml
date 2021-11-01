@@ -1,0 +1,41 @@
+﻿@using StoreDemo.Common;
+
+<div class="mid-header container">
+    <a href="/" class="logo">GearShop</a>
+    <div class="search">
+        <input type="text" placeholder="Search" />
+        <i class="bx bx-search-alt"></i>
+    </div>
+    <ul class="user-menu">
+        <li>
+            @{ var session = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];}
+            @if (session != null)
+            {
+                <a href="/dang-nhap" type="button" style="border: none; background: transparent">
+                    <i class="bx bx-user-circle"></i>
+                </a>
+                <div class="dropdown-content">
+                    <p>Xin chào, <b>@session.FullName</b></p>
+                    <a href="/tai-khoan">Thông tin tài khoản</a>
+                    <a href="/Customer/Logout">Đăng xuất</a>
+                </div>
+            }
+            <a href="/dang-nhap" style="border: none; background: transparent"
+               id="myBtn">
+                <i class="bx bx-user-circle">           
+                </i>
+            </a>
+        </li>
+        <li>
+            <a href="/vo-hang" class="cart-content">
+                <i class="bx bx-cart">
+                    @if (ViewBag.CartItemAmount != null)
+                    {
+                        <span class="cart-num">@ViewBag.CartItemAmount</span>
+                    }
+                </i>
+                
+            </a>
+        </li>
+    </ul>
+</div>

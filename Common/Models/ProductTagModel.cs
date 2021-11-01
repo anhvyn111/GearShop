@@ -10,6 +10,6 @@ namespace StoreDemo.Areas.Admin.Models
         public string TagID { get; set; }
 
         public string TagName { get; set; }
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
     }
 }

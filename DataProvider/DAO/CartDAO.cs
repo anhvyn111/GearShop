@@ -49,5 +49,49 @@ namespace DataProvider.DAO
             }
             return list;
         }
+        public bool CheckQuanlity(int? id, int? quanlity)
+        {
+            var product = context.Carts.Where(x => x.ProductID == id).FirstOrDefault();
+            if(product.Quanlity >= quanlity)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void UpdateQuanlity(int? id, int? quanlity)
+        {
+            
+            
+        } 
+        public void UpdateQuanlityByProductID(int productID, int customerID, int? quanlity)
+        {
+            var cartItem = context.Carts.Where(x => x.ProductID == productID && x.CustomerID == quanlity).FirstOrDefault();
+            cartItem.Quanlity = quanlity;
+            context.SaveChanges();
+        }
+        public void Delete(int cartID)
+        {
+            var cart = context.Carts.Where(x=>x.CartID == cartID).FirstOrDefault();
+            context.Carts.Remove(cart);
+            context.SaveChanges();
+        }
+
+        public bool DeleteByProductID(int? productID, int customerID)
+        {
+            var cart = context.Carts.Where(x => x.ProductID == productID && x.CustomerID == customerID).FirstOrDefault();
+            if(cart != null)
+            {
+                context.Carts.Remove(cart);
+                int i = context.SaveChanges();
+                if(i > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

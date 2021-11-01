@@ -14,11 +14,11 @@ namespace StoreDemo.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
-            //context.MapRoute(
-            //    "Customer",
-            //    "admin/khach-hang/{action}/{id}",
-            //    new { controller = "Customer", action = "Index", id = UrlParameter.Optional }
-            //);
+            context.MapRoute(
+                "Customer",
+                "admin/khach-hang/{action}/{id}",
+                new { controller = "Customer", action = "Index", id = UrlParameter.Optional }
+            );
             context.MapRoute(
                 "Product Categories",
                 "admin/danh-muc-san-pham/{id}",
@@ -34,15 +34,11 @@ namespace StoreDemo.Areas.Admin
                 "Admin/san-pham/{action}/{id}",
                 new { controller = "Product", action = "Index", id = UrlParameter.Optional }
             );
-            //context.MapRoute(
-            //    "Dashboard",
-            //    "admin/trang-chu/{action}/{id}",
-            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
+
             context.MapRoute(
                 "Admin_Default",
                 "Admin/{controller}/{action}/{id}",
-                new {id = UrlParameter.Optional }
+                new {controller="Home",action="Index",id = UrlParameter.Optional }
             );
         }
     }

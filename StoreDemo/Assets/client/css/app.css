@@ -5,6 +5,17 @@
     margin-bottom: 15px;
 }
 
+.cart-content .badge {
+    font-size: 15px;
+    position: absolute;
+    top: 12px;
+    right:10px;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+
 .bg-second {
     background-color: var(--second-bg-color);
 }
@@ -147,15 +158,14 @@ ul.devided > li:last-child {
 }
 .cart-num {
     border-radius: 50%;
-    top: -50px;
-    right: -20px;
-    width: 20px;
-    height: 20px;
+    font-size: 15px;
+    top: -20px;
+    right: 25px;
+    padding: 1px 6px;
     position: relative;
     z-index: 20;
     background: #ea1c00;
     color: #fff;
-    font-size: 15px;
     text-align: center;
 }
 .bottom-header {
@@ -389,15 +399,12 @@ footer ul li {
     background: rgba(163, 156, 156, 0.6);
 
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.8px);
-    -webkit-backdrop-filter: blur(4.8px);
+
     border: 1px solid rgba(163, 156, 156, 0.23);
 
     background: rgba(163, 156, 156, 0.6);
 
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.8px);
-    -webkit-backdrop-filter: blur(4.8px);
     border: 1px solid rgba(163, 156, 156, 0.23);
 }
 .product-btn a {
@@ -546,7 +553,6 @@ footer ul li {
     background: var(--second-bg-color);
     border-radius: 2rem;
     z-index: 3;
-    backdrop-filter: blur(2rem);
     position: relative;
     padding: 5px;
     overflow: hidden;
@@ -776,7 +782,6 @@ footer ul li {
     width: 30px;
     background-color: gray;
     display: grid;
-    place-items: center;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -829,7 +834,7 @@ table .specifications {
 }
 
 .product-detail-description-content.active {
-    height: max-content;
+    height: auto;
 }
 
 .btn-view-description {

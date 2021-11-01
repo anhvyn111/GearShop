@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DataProvider.Framework.Cart>
+@{
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+@if (Model.Count() > 0)
+{
+    <table class="table_cart">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá tiền</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="cart_tbody">
+            @{long? total = 0; }
+            @foreach (var item in Model)
+            {
+                var url = "/Images/Products/" + item.Product.ProductImages.First().ImageName;
+                long? price = 0;
+                if (item.Product.PromotionPrice > 0)
+                {
+                    price = item.Product.PromotionPrice;
+                }
+                else
+                {
+                    price = item.Product.Price;
+                }
+                total += price * item.Quanlity;
+                <tr>
+                    <td>
+                        <img src="@url" alt="" class="cart_image" />
+                    </td>
+                    <td>
+                        <span class="cart_product_name">@item.Product.ProductName</span>
+                    </td>
+
+                    <td>
+                        <input style="font-size: 18px;" type="number" value="@item.Quanlity" data-id="@item.ProductID" min="1" max="@item.Product.Quanlity" class="cart_value" />
+                    </td>
+                    <td>
+                        <span class="cart_price"> @String.Format(info, "{0:0,0}", price)<sup>đ</sup></span>
+                    </td>
+                    <td>
+                        <span class="cart_price">@String.Format(info, "{0:0,0}", price * item.Quanlity)<sup>đ</sup></span>
+                    </td>
+                    <td style="cursor: pointer;">
+                        <a data-id="@item.ProductID" class="btn-delete-cart">
+                            <i style="cursor: pointer; font-size: 30px;"
+                               class="uil uil-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="price-total">
+        <p>
+            Thành tiền: <span id="cart_price-total">@String.Format(info, "{0:0,0}", total)<sup>đ</sup></span>
+        </p>
+    </div>
+    <div class="btn_pay">
+        <a href="/thanh-toan"><button>Thanh toán</button></a>
+    </div>
+}
+else
+{
+    <div>
+        <div style="margin-top: 4rem; text-align: center; margin-bottom: 3rem;">
+            <h4>Chưa có sản phẩm trong vỏ hàng</h4>
+        </div>
+    </div>
+}

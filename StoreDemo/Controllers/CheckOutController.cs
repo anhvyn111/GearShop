@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using DataProvider.DAO;
 using DataProvider.Framework;
 using StoreDemo.Common;
+using StoreDemo.Models;
+
 namespace StoreDemo.Controllers
 {
     public class CheckOutController : Controller
@@ -27,8 +29,79 @@ namespace StoreDemo.Controllers
                     return Redirect("/");
                 }
             }
-            return View(listCart);
+            return View();
         }
-        public ActionResult Submit() { }
+
+        [ChildActionOnly]
+        public ActionResult ListCart()
+        {
+            var customerSession = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];
+            var listCart = new CartDAO().ListCart(customerSession.ID);
+            return PartialView(listCart);
+        }
+
+        [HttpPost]
+        public ActionResult Payment(Order order) {
+            if (ModelState.IsValid)
+            {
+                if(order.PaymentMethod == "code")
+                {
+                    var user = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];
+                    var cartDAO = new CartDAO();
+                    var listCart = cartDAO.ListCart(user.ID);
+                    int error = 0;
+                    string errorMessage = "";
+                    long? totalPrice = 0;
+                    foreach (var item in listCart)
+                    {
+                        var result = cartDAO.CheckQuanlity(item.ProductID, item.Quanlity);
+                        if (!result)
+                        {
+                            error += 1;
+                            var product = new ProductDAO().GetByID(item.ProductID);
+                            errorMessage += "Sản phẩm '" + product.ProductName + "' chỉ còn " + product.Quanlity + " sản phẩm. \n";
+                        }
+                        else
+                        {
+                            long? price = item.Product.Price;
+                            if (item.Product.PromotionPrice > 0)
+                            {
+                                price = item.Product.PromotionPrice;
+                            }
+                            totalPrice += price * item.Quanlity;
+                        }
+                    }
+                    if (error > 0)
+                    {
+                        TempData["errorMess"] = errorMessage;
+                        return Redirect("/vo-hang");
+
+                    }
+                    else
+                    {
+                        var pOrder = new ProductOrder()
+                        {
+                            FullName = order.FullName,
+                            Address = order.Address + ", " + order.Ward + ", " + order.City + ", " + order.Province,
+                            PhoneNumber = order.PhoneNumber,
+                            TotalPrice = (int)totalPrice,
+                            OrderDate = DateTime.Now,
+                            PaymentMethod = "cod",
+                            CustomerID = user.ID
+                        };
+                        var result = new OrderDAO().Insert(pOrder);
+                        if (result)
+                        {
+                            return Redirect("/");
+                        }
+                    }
+                }
+            }          
+            else
+            {
+                ModelState.AddModelError("", "Vui lòng nhập đầy đủ thông tin");
+            }
+            return View("Index");
+        }
     }
 }

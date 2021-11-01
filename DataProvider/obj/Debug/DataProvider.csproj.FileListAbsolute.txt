@@ -1,20 +1,19 @@
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\DataProvider.dll.config
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\DataProvider.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\DataProvider.pdb
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\EntityFramework.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\EntityFramework.xml
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\obj\Debug\DataProvider.csproj.AssemblyReference.cache
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\obj\Debug\DataProvider.csproj.CopyComplete
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\obj\Debug\DataProvider.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\obj\Debug\DataProvider.pdb
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.Mvc.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.xml
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\PagedList.Mvc.xml
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\Common.dll
-C:\Users\Admin\source\repos\StoreDemo\DataProvider\bin\Debug\Common.pdb
-D:\GearShop\GearShop\DataProvider\obj\Debug\DataProvider.csprojAssemblyReference.cache
-D:\GearShop\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\DataProvider.dll.config
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\DataProvider.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\DataProvider.pdb
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\Common.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\EntityFramework.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\PagedList.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\PagedList.Mvc.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\Common.pdb
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\Common.dll.config
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\EntityFramework.xml
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\PagedList.xml
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\bin\Debug\PagedList.Mvc.xml
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.csprojAssemblyReference.cache
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CopyComplete
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.dll
+C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.pdb
