@@ -1,4 +1,5 @@
-﻿@model List<DataProvider.Framework.Product>
+﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Collection";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -50,7 +51,7 @@
                                                     <div class="product-btn">
                                                         <a href="/san-pham/@item.MetaTitle">Xem chi tiết</a>
                                                         <a href="/add-to-cart?id=@item.ProductID" class="btn-hover btn-cart-add"
-                                                                id="add_to_cart">
+                                                           id="add_to_cart">
                                                             <i class="bx bxs-cart-add"></i>
                                                         </a>
                                                     </div>
@@ -80,19 +81,7 @@
                             </div>
                         </div>
                         <div class="box">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#"><i class="bx bxs-chevron-left"></i></a>
-                                </li>
-                                <li><a href="#" class="active">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#"><i class="bx bxs-chevron-right"></i></a>
-                                </li>
-                            </ul>
+                            @Html.PagedListPager(Model, page => Url.Action("Collection", new { page, @search = ViewBag.Search }))
                         </div>
                     </div>
                 </div>

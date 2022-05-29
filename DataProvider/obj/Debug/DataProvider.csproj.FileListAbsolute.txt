@@ -17,3 +17,41 @@ C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvid
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CopyComplete
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.dll
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\DataProvider\obj\Debug\DataProvider.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\DataProvider.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\DataProvider.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\DataProvider.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\EntityFramework.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\EntityFramework.SqlServer.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\PagedList.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\PagedList.Mvc.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\Common.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\EntityFramework.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\EntityFramework.SqlServer.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\PagedList.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\bin\Debug\PagedList.Mvc.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\obj\Debug\DataProvider.csprojAssemblyReference.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\obj\Debug\DataProvider.csproj.CopyComplete
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\obj\Debug\DataProvider.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\DataProvider\obj\Debug\DataProvider.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\DataProvider.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\DataProvider.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\DataProvider.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\EntityFramework.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\EntityFramework.SqlServer.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\PagedList.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\PagedList.Mvc.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\Common.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\EntityFramework.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\EntityFramework.SqlServer.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\PagedList.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\bin\Debug\PagedList.Mvc.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\obj\Debug\DataProvider.csproj.AssemblyReference.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\obj\Debug\DataProvider.csproj.CoreCompileInputs.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\obj\Debug\DataProvider.csproj.CopyComplete
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\obj\Debug\DataProvider.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\DataProvider\obj\Debug\DataProvider.pdb

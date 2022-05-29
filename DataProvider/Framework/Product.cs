@@ -1,4 +1,4 @@
-namespace DataProvider.Framework
+﻿namespace DataProvider.Framework
 {
     using System;
     using System.Collections.Generic;
@@ -20,22 +20,29 @@ namespace DataProvider.Framework
 
         public int ProductID { get; set; }
 
+        [Display(Name = "Tên sản phẩm")]
         public string ProductName { get; set; }
 
         public string MetaTitle { get; set; }
 
+        [Display(Name = "Giá bán")]
         public long? Price { get; set; }
 
+        [Display(Name = "Giá khuyến mãi")]
         public long? PromotionPrice { get; set; }
 
+        [Display(Name = "Thể loại")]
         public int? CategoryID { get; set; }
 
+        [Display(Name = "Mô tả ngắn")]
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Display(Name = "Chi tiết")]
         public string Detail { get; set; }
 
+        [Display(Name ="Số lượng")]
         public int? Quanlity { get; set; }
 
         public DateTime? ModifiedDate { get; set; }
@@ -43,6 +50,7 @@ namespace DataProvider.Framework
         [StringLength(200)]
         public string ModifiedBy { get; set; }
 
+        [Display(Name = "Thẻ sản phẩm")]
         public string ProductTag { get; set; }
 
         public bool Status { get; set; }

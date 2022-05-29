@@ -1,4 +1,5 @@
-﻿@model List<DataProvider.Framework.Product>
+﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -61,6 +62,9 @@
                         }
                         <!-- END product ITEM -->
                     </div>
+                </div>
+                <div class="box">
+                    @Html.PagedListPager(Model, page => Url.Action("Search", new { page, @search = ViewBag.Search }))
                 </div>
             </div>
         </div>

@@ -1,0 +1,106 @@
+﻿@model DataProvider.Framework.Customer
+
+@{
+    ViewBag.Title = "Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section clientTitle{
+    Thông tin tài khoản - GearShop
+    }
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-md-3 col-sm-12 user__container">
+            <div class="user__menu">
+                <div class="user__header">
+                    <h2>Xin chào, @Model.FullName</h2>
+                </div>
+                <div class="list-group active">
+                    <a href="" class="list-group-item list-group-item-action">Xem thông tin</a>
+                </div>
+                <div class="list-group">
+                    <a href="/don-hang" class="list-group-item list-group-item-action">Xem đơn hàng</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 col-md-9 col-sm-12 user__container">
+            <div class="user__info">
+                <h2>Thông tin tài khoản</h2>
+                <form action="/Customer/Edit" method="POST" id="update_form">
+                    @Html.ValidationSummary(true, null, new { @class = "alert" })
+                    <div class="form_container">
+                        <div class="form_infor_user">
+                            <div class="col-sm-12 col-lg-3">
+                                <label for="user_name">Họ và tên:</label>
+                            </div>
+                            <div class="col-sm-12 col-lg-9">
+                                <input type="text" id="user_name" name="FullName" value="@Model.FullName" />
+                            </div>
+                        </div>
+                        <div class="form_infor_user">
+                            <div class="form_col-25">
+                                <label for="user_birth">Ngày sinh</label>
+                            </div>
+                            <div class="form_col-50">
+                                @Html.TextBoxFor(model => model.Birth, "{0:MM/dd/yyyy}", new { @class = "form-control", @style = "padding: 10px;" })
+                            </div>
+                        </div>
+                        <div class="form_infor_user">
+                            <div class="col-sm-12 col-md-3">
+                                <label for="user_address">Giới tính:</label>
+                            </div>
+                            <div class="col-sm-12 col-md-9">
+                                <div class="row">
+                                    @if (Model.Gender == 0)
+                                    {
+                                        <div class="col-3">
+                                            <input type="radio" id="user_male" name="Gender" value="0" checked>
+                                            <label for="user_male">Nam</label><br>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" id="user_female" name="Gender" value="1">
+                                            <label for="user_female">Nữ</label><br>
+                                        </div>
+                                    }
+                                    @if (Model.Gender == 1)
+                                    {
+                                        <div class="col-3">
+                                            <input type="radio" id="user_male" name="Gender" value="0">
+                                            <label for="user_male">Nam</label><br>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" id="user_female" name="Gender" value="1" checked>
+                                            <label for="user_female">Nữ</label><br>
+                                        </div>
+                                    }
+                                    @if (Model.Gender == null)
+                                    {
+                                        <div class="col-3">
+                                            <input type="radio" id="user_male" name="Gender" value="0">
+                                            <label for="user_male">Nam</label><br>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" id="user_female" name="Gender" value="1">
+                                            <label for="user_female">Nữ</label><br>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_infor_user">
+                            <div class="col-sm-12">
+                                <label for="user_phone">Số điện thoại:</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" id="user_phone" name="PhoneNumber" value="@Model.PhoneNumber" />
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" style="margin-left:auto; margin-right: auto;" value="Sửa thông tin" class="btn-flat btn-hover" id="user__update">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

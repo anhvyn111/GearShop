@@ -15,6 +15,21 @@ namespace StoreDemo.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                "Revenue",
+                "admin/doanh-thu",
+                new { controller = "Revenue", action = "Index", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
+                "Order Detail",
+                "admin/xem-don-hang/{id}",
+                new { controller = "Order", action = "Detail", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
+                "Orders",
+                "admin/don-hang",
+                new { controller = "Order", action = "Index", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
                 "Customer",
                 "admin/khach-hang/{action}/{id}",
                 new { controller = "Customer", action = "Index", id = UrlParameter.Optional }

@@ -24,9 +24,11 @@ namespace DataProvider.Framework
         [StringLength(255)]
         public string FullName { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birth { get; set; }
 
-        public bool? Gender { get; set; }
+        public int? Gender { get; set; }
 
         [StringLength(11)]
         public string PhoneNumber { get; set; }

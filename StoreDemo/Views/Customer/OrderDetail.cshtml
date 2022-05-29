@@ -1,0 +1,105 @@
+﻿@model DataProvider.Framework.ProductOrder
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+
+
+}
+@section clientTitle{
+    Chi tiết đơn hàng - GearShop
+}
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-md-3 col-sm-12 user__container">
+            <div class="user__menu">
+                <div class="user__header">
+                    <h2>Xin chào</h2>
+                </div>
+                <div class="list-group">
+                    <a href="/tai-khoan" class="list-group-item list-group-item-action">Xem thông tin</a>
+                </div>
+                <div class="list-group active">
+                    <a href="" class="list-group-item list-group-item-action">Xem đơn hàng</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 col-md-9 col-sm-12 user__container">
+            <div class="user__order">
+                <div style="display: inline">
+                    <p><a style="text-decoration: underline; color: blue;" href="/don-hang">Đơn hàng</a> > Đơn hàng #@Model.OrderID</p>
+                    <h2 style="margin-left: auto; text-align: right">Thông tin đơn hàng #@Model.OrderID</h2>
+                </div>
+                
+
+            @if (Model != null)
+            {
+                <table style="border: none; text-align:left; margin-bottom: 10px;">
+                    <tr>
+                        <th>
+                            Tên người nhận:
+                        </th>
+                        <td>
+                            @Model.FullName
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Só điện thoại:
+                        </th>
+                        <td>
+                            @Model.PhoneNumber
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Địa chỉ:
+                        </th>
+                        <td>
+                            @Model.Address
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Ngày đặt:
+                        </th>
+                        <td>
+                            @Model.OrderDate.ToString("dd/MM/yyyy HH:mm");
+                        </td>
+                    </tr>
+                </table>
+                <table class="user__orders" id="tb_orders">
+                    <thead>
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td>@item.Product.ProductName</td>
+                                <td>@item.Quanlity</td>
+                                <td style="text-align: right; margin-right: 2px;">@String.Format(info, "{0:0,0}", item.Price)</td>
+                                <td style="text-align: right">@String.Format(info, "{0:0,0}", item.Price * item.Quanlity)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div>
+                    <p style="margin: auto;">Bạn chưa có đơn hàng</p>
+
+                </div>
+            }
+        </div>
+        </div>
+    </div>
+</div>

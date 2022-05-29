@@ -31,8 +31,9 @@
                     <button class="btn-edit-category" data-id="@item.CategoryID" onclick="ShowEditCateModal(@item.CategoryID)">
                         <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button id="delete_Btn">
+                    <button id="delete_Btn"  onclick="DeleteCategory(@item.CategoryID)">
                         <i class="fas fa-trash-alt"></i>
+                       
                     </button>
                 </td>
             </tr>

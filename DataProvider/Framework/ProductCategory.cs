@@ -1,4 +1,4 @@
-namespace DataProvider.Framework
+﻿namespace DataProvider.Framework
 {
     using System;
     using System.Collections.Generic;
@@ -20,10 +20,13 @@ namespace DataProvider.Framework
         public int CategoryID { get; set; }
 
         [StringLength(200)]
+        [Display(Name ="Tên danh mục")]
         public string CategoryName { get; set; }
 
         [StringLength(200)]
         public string MetaTitle { get; set; }
+        
+        [Display(Name ="Thể loại")]
 
         public int? MenuID { get; set; }
 

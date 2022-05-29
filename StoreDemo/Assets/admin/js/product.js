@@ -1,4 +1,6 @@
-﻿$('#tb-product-name-create').on('keyup', function () {
+﻿
+//Kiểm tra tên đã tồn tại trong tạo sản phẩm
+$('#tb-product-name-create').on('keyup', function () {
     var name = $(this).val();
     var id = 0;
     $.ajax({
@@ -24,6 +26,9 @@
         }
     });
 });
+
+
+//Kiểm tra tên đã tồn tại trong chỉnh sửa sản phẩm
 $('#tb-product-name-edit').on('keyup', function () {
     var name = $(this).val();
     var id = $('#product-id-edit').val();
@@ -51,6 +56,8 @@ $('#tb-product-name-edit').on('keyup', function () {
     });
 });
 
+
+//Load danh sách gắn thẻ của thể loại
 $('#dropdown-category-edit').on('change', function (e) {
     e.preventDefault();
     var id = $(this).val();
@@ -92,35 +99,8 @@ function ListEditTagsByCategory(id, productID) {
     });
 }
 
-function ListCreateTagsByCategory(id) {
-    $.ajax({
-        url: '/Admin/Product/ListCreateTagsByCategory',
-        type: 'GET',
-        data: {
-            id: id
-        },
-        dataType: 'json',
-        success: function (res) {
-            var data = ``;
-            for (var item of res) {
-                data += `
-                    <div class="form-check">
-                      <input class="form-check-input" name="CheckBoxTags" type="checkbox" value="${item.TagID}">
-                      <label class="form-check-label">${item.TagName}</label>
-                    </div>
-                `;
-            }
-            $('#checkbox-product-tag-create').html(data);
-        }
-    });
-}
 
 
-$('#dropdown-category-create').on('change', function (e) {
-    e.preventDefault();
-    var id = $(this).val();
-    ListCreateTagsByCategory(id);
-});
 
 
 
@@ -134,6 +114,7 @@ function DetailProduct(id) {
         },
         dataType: 'json',
         success: function (response) {
+            console.log(response.product)
             var data = `
                 <dl class="dl-horizontal">
                     <dt>
@@ -185,34 +166,7 @@ function DetailProduct(id) {
     });
 }
     
-function LoadImages(id) {
-    var data;
-    $.ajax({
-        url: '/Admin/Product/LoadImages',
-        type: 'GET',
-        data: {
-            id: id
-        },
-        dataType: 'json',
-        success: function (response) {
-            data = `           
-                    <table class="table">
-                       `
-            for (item of response) {
-                data += `
-                    <tr id="image-${item.ImageID}">
-                        <td><img class="align-right float-end" src="/Images/Products/${item.ImageName}" style="width: 60%;"></td>
-                        <td style="text-align: center;"><button type="button" class="btn btn-danger btn-delete-images" onclick="DeleteImage(${item.ImageID})" data-id="${ item.ImageID } ">Xóa</button></td>
-                    </tr>   
-                `;
-            }
-            data += `</table>`;
-            console.log(data);
-            $('#modal-body-manage-images').html(data);
-            $('#hidden-product-id').val(id);
-        }
-    });
-}
+
 var id;
 $('.btn-manage-images').on('click', function (e) {
     id = $(this).data('id');
@@ -233,7 +187,10 @@ function DeleteImage(id) {
             dataType: 'json',
             success: function (response) {
                 if (response) {
-                    $('#image-' + id).html('');
+                    $('#image-' + id).hide();
+                }
+                else {
+                    alert("Không thể xóa vì sản phẩm phải có ít nhất 1 ảnh.");
                 }
             }
         });
@@ -286,6 +243,40 @@ function ChangeStatus(id) {
                     });
                     $('#alert-product').addClass('alert-danger');
                     $('#alert-product').html('Cập nhật thất bại');
+                }
+            }
+        });
+    }
+}
+
+function DeleteProduct(id) {
+    if (confirm("Bạn có chắc muốn xóa sản phẩm " + id + " không?")) {
+        $.ajax({
+            url: '/Admin/Product/Delete',
+            type: 'POST',
+            data: { id },
+            success: function (status) {
+                if (status == 1) {
+                    $("#alert-product").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert-product").slideUp(500);
+                    });
+                    $('#alert-product').addClass('alert-success');
+                    $('#alert-product').html("Xóa sản phẩm thành công");
+                    $('#datatable-product').load('/Admin/Product/DataTable');
+                }
+                else if (status == -1) {
+                    $("#alert-product-category").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert-product-category").slideUp(500);
+                    });
+                    $('#alert-product').addClass('alert-danger');
+                    $('#alert-product').html("Sản phẩm không tồn tại.");
+                }
+                else {
+                    $("#alert-product-category").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert-product-category").slideUp(500);
+                    });
+                    $('#alert-product').addClass('alert-danger');
+                    $('#alert-product').html("Không thể xóa vì sản phẩm đã được bán.");
                 }
             }
         });

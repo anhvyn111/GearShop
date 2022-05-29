@@ -1,0 +1,90 @@
+﻿
+
+
+@model PagedList.IPagedList<DataProvider.Framework.ProductOrder>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    long Total = 0;
+}
+
+<div class="details_table">
+    <!-- Orders table-->
+    <div class="recent_table">
+        <div class="cardHeader">
+            <h2>Doanh thu</h2>
+            <form>
+                <input class="search_box"
+                       type="text"
+                       placeholder="Từ ngày"
+                       id="search_order"
+                       name="fromDate"
+                       style="width: 30%" />
+                <input class="search_box"
+                       type="text"
+                       placeholder="Đến ngày"
+                       id="search_order"
+                       name="toDate"
+                       style="width: 30%" />
+                <button type="submit" class="btn btn-success">Tìm</button>
+            </form>
+        </div>
+
+        <div id="order-data-table">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Khách hàng</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="order_body">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            Total += item.TotalPrice;
+                            <tr>
+                                <td><p id="order_id">@item.OrderID</p></td>
+                                <td>
+                                    <p id="order_cus">
+                                        @item.Customer.Email
+                                    </p>
+                                </td>
+                                <td>
+                                    <p id="order_price">@String.Format(info, "{0:0,0}", item.TotalPrice)<sup>đ</sup></p>
+                                </td>
+                                <td>
+                                    <a href="/admin/xem-don-hang/@item.OrderID" role="button" class="btn btn-success text-white">
+                                        Xem đơn
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div id="pageNavPosition" class="pager-nav row">
+            
+        </div>
+        <div>
+            <h3>Total: @String.Format(info, "{0:0,0}", Total)<sup>đ</sup></h3>   
+        </div>
+    </div>
+</div>
+
+
+
+

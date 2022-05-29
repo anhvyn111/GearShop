@@ -21,9 +21,7 @@ prevSlide = () =>
 
 // pause slide when hover slider
 
-document
-  .querySelector(".slider")
-  .addEventListener("mouseover", () => (slide_play = false));
+
 
 // enable slide when mouse leave out slider
 document

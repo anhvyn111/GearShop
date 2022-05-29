@@ -33,25 +33,43 @@ namespace StoreDemo.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Product product, ProductImage productImage, List<HttpPostedFileBase> images, List<string> CheckBoxTags)
+        public ActionResult Create(Product product, ProductImage productImage, List<HttpPostedFileBase> images)
         {
-            if (!String.IsNullOrEmpty(product.ProductName) && product.CategoryID != null && product.Price != null && !String.IsNullOrEmpty(product.Description) && !String.IsNullOrEmpty(product.Detail) && images.Count > 0)
+            //Kiểm tra tất cả thông tin đã được nhập đầy đủ chưa
+            if (!String.IsNullOrEmpty(product.ProductName) && product.CategoryID != null && product.Price != null && !String.IsNullOrEmpty(product.Description) && !String.IsNullOrEmpty(product.Detail) && images.Count > 0 && images[0] != null)
             {
                 var productDAO = new ProductDAO();
+                //Kiếm tra tên đã tồn tại hay chưa
                 bool checkName = productDAO.CheckNameExist(product.ProductName, 0);
+                
                 if (!checkName)
                 {
                     ModelState.AddModelError("", "Tên sản phẩm đã tồn tại.");
+                }
+                //Nếu chưa upload hình ảnh
+                else if(images == null)
+                {
+                    ModelState.AddModelError("", "Vui lòng thêm ảnh sản phẩm.");
                 }
                 else
                 {
                     var user = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
                     product.ModifiedBy = user.username;
                     string productFolder = "~/Images/Products/";
+                   
                     foreach (var file in images)
                     {
                         if (file.ContentLength > 0 && file.FileName != null)
                         {
+                            var supportedTypes = new[] { "jpg", "jpeg", "png" };
+                            var fileExt = Path.GetExtension(file.FileName).Substring(1);
+                            //Kiểm tra định dạng file có đúng jpg, jpeg hoặc png không
+                            if (!supportedTypes.Contains(fileExt))
+                            {
+                                ModelState.AddModelError("", "Hình ảnh đăng tải không đúng định dạng jpg, jpeg hoặc png.");
+                                SetViewBag();
+                                return View();
+                            }
                             string extensionName = Path.GetExtension(file.FileName);
                             string fileName = Guid.NewGuid().ToString() + "_" + extensionName;
                             var serverSavePath = Path.Combine(Server.MapPath(productFolder) + fileName);
@@ -59,20 +77,12 @@ namespace StoreDemo.Areas.Admin.Controllers
                             product.ProductImages.Add(new ProductImage { ImageName = fileName, ImagePath = productFolder });
                         }
                     }
-                    if (CheckBoxTags.Count > 0)
-                    {
-                        foreach (var tag in CheckBoxTags)
-                        {
-                            if(tag != "")
-                            {
-                                product.ProductTags.Add(new DataProvider.Framework.ProductTag { TagID = tag, ProductID = product.ProductID });
-                            }
-                        }
-                    }
+                  
                     long productID = productDAO.Insert(product);
                     return RedirectToAction("Index", "Product");
                 }
             }
+            //Báo lỗi khi chưa nhập đầy đủ thông tin
             else
             {
                 ModelState.AddModelError("", "Vui lòng nhập đầy đủ thông tin");
@@ -82,69 +92,35 @@ namespace StoreDemo.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public JsonResult LoadDetail(int id)
+        public ActionResult Detail(int id)
         {
             var productDAO = new ProductDAO();
             var product = productDAO.ViewDetailAdmin(id);
             var categoryDAO = new ProductCategoryDAO();
             var category = categoryDAO.GetByID(product.CategoryID);
-            var response = new { product = product, category = category};
-            return Json(response, JsonRequestBehavior.AllowGet);
+            product.ProductCategory = category;
+            return View(product);
         }
 
-        public JsonResult LoadImages(int id)
-        {
-            ProductImageDAO dao = new ProductImageDAO();
-            List<ProductImage> imageList = dao.ListImages(id);
-            return Json(imageList, JsonRequestBehavior.AllowGet);
-        }
+ 
 
-        [HttpPost]
-        public ActionResult UploadImages()
-        {     
-            bool result = false;
-            if (Request.Files.Count > 0)
-            {
-                int id = 1016;
-                var files = Request.Files;
-                ProductImageDAO dao = new ProductImageDAO();
-                int count = dao.CountImages();
-                //iterating through multiple file collection   
-                foreach (string str in files)
-                {
-                    HttpPostedFileBase file = Request.Files[str] as HttpPostedFileBase;
-                    //Checking file is available to save.  
-                    string path = Server.MapPath("~/Images/Products/");
-                    ProductImage model = new ProductImage();
-                    string extensionName = Path.GetExtension(file.FileName);
-                    string fileName = Guid.NewGuid() + "_" + count + extensionName;
-                    var serverSavePath = Path.Combine(path + fileName);
-                    file.SaveAs(serverSavePath);
-                    model.ImageName = file.FileName;
-                    model.ProductID = id;
-                    int status = dao.Insert(model);        
-                    count += 1;
-                }
-                result = true;
-            }    
-            else
-            {
-                result = false;
-            }
-            return Json(result);
-        }
         public JsonResult DeleteImages(int id)
         {
             ProductImageDAO dao = new ProductImageDAO();
             var image = dao.GetByID(id);
-            dao.DeleteImage(image);
-            var fullPath = Server.MapPath("~/Images/Products/" + image.ImageName);
-            string filePath = Server.MapPath("~/Images/Products/");
-            if (System.IO.File.Exists(fullPath))
+            var product = new ProductDAO().GetByID(image.ProductID);
+            if(product.ProductImages.Count > 1)
             {
-                System.IO.File.Delete(fullPath);
+                dao.DeleteImage(image);
+                var fullPath = Server.MapPath("~/Images/Products/" + image.ImageName);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+                return Json(true, JsonRequestBehavior.AllowGet);
             }
-            return Json(true, JsonRequestBehavior.AllowGet);
+           
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -156,7 +132,7 @@ namespace StoreDemo.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Product product, List<string> CheckBoxTags = null)
+        public ActionResult Edit(Product product, List<HttpPostedFileBase> images)
         {
             if (!String.IsNullOrEmpty(product.ProductName) && product.Price != null && !String.IsNullOrEmpty(product.Description) && !String.IsNullOrEmpty(product.Detail))
             {
@@ -168,15 +144,26 @@ namespace StoreDemo.Areas.Admin.Controllers
                 }
                 else
                 {
-                    var user = (AdminLogin)Session[CommonConstants.ADMIN_SESSION];
-                    productDAO.DeleteAllProductTag(product.ProductID);
-                    if (CheckBoxTags.Count > 0)
+                    if(images[0] != null && images.Count > 0)
                     {
-                        foreach (var tag in CheckBoxTags)
+                        var supportedTypes = new[] { "jpg", "jpeg", "png" };
+                        string productFolder = "~/Images/Products/";
+                        foreach (var file in images)
                         {
-                            if (tag != null)
+                            if (file.ContentLength > 0 && file.FileName != null)
                             {
-                                product.ProductTags.Add(new DataProvider.Framework.ProductTag { TagID = tag, ProductID = product.ProductID });
+                                var fileExt =Path.GetExtension(file.FileName).Substring(1);
+                                if (!supportedTypes.Contains(fileExt)){
+                                    ModelState.AddModelError("", "Hình ảnh đăng tải không đúng định dạng jpg, jpeg hoặc png.");
+                                    product.ProductImages = new ProductImageDAO().ListImages(product.ProductID);
+                                    SetViewBag();
+                                    return View(product);
+                                }
+                                string extensionName = Path.GetExtension(file.FileName);
+                                string fileName = Guid.NewGuid().ToString() + "_" + extensionName;
+                                var serverSavePath = Path.Combine(Server.MapPath(productFolder) + fileName);
+                                file.SaveAs(serverSavePath);
+                                product.ProductImages.Add(new ProductImage { ImageName = fileName, ImagePath = productFolder });
                             }
                         }
                     }
@@ -196,8 +183,9 @@ namespace StoreDemo.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Vui lòng điền đầy đủ thông tin");
             }
+            product.ProductImages = new ProductImageDAO().ListImages(product.ProductID);
             SetViewBag();
-            return View();
+            return View(product);
         }
 
         [HttpPost]
@@ -221,34 +209,52 @@ namespace StoreDemo.Areas.Admin.Controllers
             return Json(result);
         }
 
-        [HttpDelete]
+
+        //Xóa sản phẩm
+        [HttpPost]
         public ActionResult Delete(int id)
         {
-            var productDAO = new ProductDAO();
-            Product model = new Product();
-            var status = productDAO.Delete(model);
-            if (status == 1)
+            int status = 0;
+            string message = "";
+            try
             {
-                var imageDAO = new ProductImageDAO();
-                List<ProductImage> imageList = imageDAO.ListImages(id);
-                if (imageList.Count > 0)
+                var productDAO = new ProductDAO();
+                Product model = new Product();
+                var product = productDAO.GetByID(id);
+     
+                if (product != null)
                 {
-           
-                    string filePath = Server.MapPath("~/Images/Products/");
-                    foreach (var image in imageList)
+                    productDAO.Delete(product);
+                    var imageDAO = new ProductImageDAO();
+                    List<ProductImage> imageList = imageDAO.ListImages(id);
+                    if (imageList.Count > 0)
                     {
-                        System.IO.File.Delete(filePath + image.ImageName);
-                        imageDAO.DeleteImage(image);
-                    }
 
+                        string filePath = Server.MapPath("~/Images/Products/");
+                        foreach (var image in imageList)
+                        {
+                            System.IO.File.Delete(filePath + image.ImageName);
+                            imageDAO.DeleteImage(image);
+                        }
+
+                    }
+                    status = 1;
+                    message = "Xóa sản phẩm thành công";
                 }
-                return RedirectToAction("Index", "Product");
+                else
+                {
+
+                    status = -1;
+                    message = "Sản phẩm không tồn tại";
+                }
             }
-            else
+            catch
             {
-                ModelState.AddModelError("", "Đã có lỗi xảy ra");
+                status = 0;
+                message = "Xóa sản phẩm thành công"; ;
             }
-            return View();
+
+            return Json(status);
         }
         public void SetViewBag(long? selectID = null)
         {

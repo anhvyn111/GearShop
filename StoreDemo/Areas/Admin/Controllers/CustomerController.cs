@@ -12,7 +12,7 @@ namespace StoreDemo.Areas.Admin.Controllers
     public class CustomerController : BaseController
     {
         // GET: Admin/Customer
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var dao = new CustomerDAO();
             var model = dao.ListAllPaging(searchString, page, pageSize);

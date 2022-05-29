@@ -42,6 +42,7 @@ namespace StoreDemo.Controllers
         {
             var customerSession = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
             var product = new ProductDAO().GetByID(id);
+            //Kiểm tra sản phẩm có tồn tại không
             if(product != null)
             {
                 // Nếu khách hàng chưa đăng nhập
@@ -58,9 +59,12 @@ namespace StoreDemo.Controllers
                         item.Quanlity = 1;
                         list.Add(item);
                     }
+                    //Nếu vỏ hàng đã có sản phẩm
                     else
                     {
                         list = (List<Cart>)cart;
+                        //Kiểm tra sản phẩm đã có trong vỏ hàng chưa
+                        //Nếu có thì cộng thêm số lượng của sản phẩm lên thêm 1
                         if(list.Exists(x=>x.Product.ProductID == id))
                         {
                             foreach(var item in list)
@@ -74,6 +78,7 @@ namespace StoreDemo.Controllers
                                 }
                             }
                         }
+                        //Nếu chưa có trong vỏ hảng thì thêm sản phẩm vào vỏ hàng
                         else
                         {
                             var item = new Cart();
@@ -86,14 +91,17 @@ namespace StoreDemo.Controllers
                     Session[CommonConstants.CART_SESSION] = list;
                     return RedirectToAction("Index");
                 }
+                //Nếu khách hàng đã đăng nhập
                 else
                 {
+                    //Lấy những sản phẩm trong vỏ hảng ở session vào database vỏ hàng của khách hàng
                     var cart = new CartDAO().ListCart(customerSession.ID);
                     if (cart != null)
                     {
                         var cartDAO = new CartDAO();
                         bool resultCart = false;
                         var checkCart = cartDAO.CheckItem(product.ProductID, customerSession.ID);
+                        //Nếu sản phẩm đã có trong vỏ hàng thì cộng thêm số lượng 1 cho sản phẩm
                         if (checkCart != null)
                         {
                             if(product.Quanlity > checkCart.Quanlity)
@@ -102,6 +110,7 @@ namespace StoreDemo.Controllers
                                 resultCart = cartDAO.Update(checkCart);
                             }
                         }
+                        //Nếu chưa thì thêm sản phẩm vào database vỏ hàng
                         else
                         {
                             var cartItem = new Cart() { ProductID = product.ProductID, Quanlity = 1, CustomerID = customerSession.ID};
@@ -150,15 +159,18 @@ namespace StoreDemo.Controllers
             var dao = new CartDAO();
             var customerSession = (CustomerLogin)Session[Common.CommonConstants.CUSTOMER_SESSION];
             var checkQuanlity = new ProductDAO().CheckQuanlity(productID, quanlity);
+            //Nếu số lượng sản phẩm không đủ thì chỉnh số lượng trong vỏ là 1
             if (!checkQuanlity || quanlity == null)
             {
                 quanlity = 1;
             }
+            //Nếu khách hàng đã đăng nhập thì update lại database vỏ hàng
             if (customerSession != null)
             {      
                 dao.UpdateQuanlityByProductID(productID, customerSession.ID, quanlity);
                 result = true;
             }
+            //Nếu không thì update lại số lượng trong session vỏ hàng
             else
             {
                 var list = (List<Cart>)Session[CommonConstants.CART_SESSION];            

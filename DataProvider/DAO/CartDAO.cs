@@ -51,7 +51,7 @@ namespace DataProvider.DAO
         }
         public bool CheckQuanlity(int? id, int? quanlity)
         {
-            var product = context.Carts.Where(x => x.ProductID == id).FirstOrDefault();
+            var product = context.Products.Where(x => x.ProductID == id).FirstOrDefault();
             if(product.Quanlity >= quanlity)
             {
                 return true;
@@ -68,7 +68,7 @@ namespace DataProvider.DAO
         } 
         public void UpdateQuanlityByProductID(int productID, int customerID, int? quanlity)
         {
-            var cartItem = context.Carts.Where(x => x.ProductID == productID && x.CustomerID == quanlity).FirstOrDefault();
+            var cartItem = context.Carts.Where(x => x.ProductID == productID && x.CustomerID == customerID).FirstOrDefault();
             cartItem.Quanlity = quanlity;
             context.SaveChanges();
         }

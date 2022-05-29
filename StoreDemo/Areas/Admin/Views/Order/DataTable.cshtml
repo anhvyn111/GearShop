@@ -1,0 +1,43 @@
+﻿@model List<DataProvider.Framework.ProductOrder> 
+@{ 
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+} 
+<table id="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Khách hàng</td>
+            <td>Trạng thái</td>
+            <td>Thành tiền</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody id="order_body">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td><p id="order_id">@item.OrderID</p></td>
+                    <td>
+                        <p id="order_cus">
+                            @item.Customer.Email
+                        </p>
+                    </td>
+                    <td id="order_status">
+                        <span class="status">Đang chờ</span>
+                    </td>
+                    <td>
+                        <p id="order_price">@String.Format(info, "{0:0,0}", item.TotalPrice)<sup>đ</sup></p>
+                    </td>
+                    <td>
+                        <a href="/admin/xem-don-hang/@item.OrderID" role="button" class="btn btn-success text-white">
+                            Xem đơn
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

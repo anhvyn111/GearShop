@@ -149,6 +149,7 @@
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RevenueController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\BaseController.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -177,6 +178,7 @@
     <Content Include="Assets\admin\css\root.css" />
     <Content Include="Assets\admin\css\text.html" />
     <Content Include="Assets\admin\js\admin.js" />
+    <Content Include="Assets\admin\js\order.js" />
     <Content Include="Assets\admin\js\pagination.js" />
     <Content Include="Assets\admin\js\product.js" />
     <Content Include="Assets\admin\js\productCategory.js" />
@@ -191,6 +193,7 @@
     <Content Include="Assets\client\images\tb---tsnn--tttn--ktn-k2018---cap-nhat-24-3-2021%2820210917_082552_315%29_.pdf" />
     <Content Include="Assets\client\js\app.js" />
     <Content Include="Assets\client\js\cart.js" />
+    <Content Include="Assets\client\js\order.js" />
     <Content Include="Assets\client\js\products.js" />
     <Content Include="Assets\client\js\product_detail.js" />
     <Content Include="Assets\client\js\slider.js" />
@@ -204,6 +207,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\order-success.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -222,6 +226,9 @@
     <Content Include="Areas\Admin\Views\ProductCategory\DataTable.cshtml" />
     <Content Include="Areas\Admin\Views\Product\DataTable.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\DataTable.cshtml" />
+    <Content Include="Areas\Admin\Views\Revenue\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -250,7 +257,6 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Product\Collection.cshtml" />
     <Content Include="Views\Product\Category.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
@@ -263,11 +269,17 @@
     <Content Include="Views\CheckOut\ListCart.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Cart\DataTable.cshtml" />
+    <Content Include="Views\Customer\Information.cshtml" />
+    <Content Include="Views\Customer\Order.cshtml" />
+    <Content Include="Views\Customer\OrderDetail.cshtml" />
+    <Content Include="Views\CheckOut\Success.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Images\Products\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

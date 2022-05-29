@@ -1,0 +1,121 @@
+﻿@model List<DataProvider.Framework.ProductOrder>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+}
+@section clientTitle{
+    Đơn hàng - GearShop
+}
+
+<div class="container">
+    @if (!string.IsNullOrEmpty(ViewBag.OrderSuccess))
+    {
+    <div class="alert" style="background-color: green;">
+        <span class="closebtn"  onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Đặt hàng thành công !!</strong>
+    </div>
+    }
+    <div class="row">
+        <div class="col-3 col-md-3 col-sm-12 user__container">
+            <div class="user__menu">
+                <div class="user__header">
+                    <h2>Xin chào, name</h2>
+                </div>
+                <div class="list-group">
+                    <a href="/tai-khoan" class="list-group-item list-group-item-action">Xem thông tin</a>
+                </div>
+                <div class="list-group active"> 
+                    <a href="" class="list-group-item list-group-item-action">Xem đơn hàng</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 col-md-9 col-sm-12 user__container">
+            <div class="user__order">
+                <h2>Thông tin đơn hàng</h2>
+                @if (Model != null)
+                {
+                    <table class="user__orders" id="tb_orders">
+                        <thead>
+                            <tr>
+                                <td>Mã đơn hàng</td>
+                                <td>Số tiền</td>
+                                <td>Ngày đặt</td>
+                                <td>Tình trạng</td>
+                                <td>Chi tiết</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.OrderID</td>
+                                    <td>@String.Format(info, "{0:0,0}", item.TotalPrice)</td>
+                                    <td>@String.Format("{0:dd/MM/yyyy HH:mm}", item.OrderDate)</td>
+                                    @if (item.Status == 1)
+                                    {
+                                        <td><span class="status yellow">Đang giao</span></td>
+                                    }
+                                    else if (item.Status == 2)
+                                    {
+                                        <td><span class="status green">Đã giao</span></td>
+                                    }
+                                    else if (item.Status == -1)
+                                    {
+                                        <td><span class="status red">Đã hủy</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="status yellow">Đang chờ duyệt</span></td>
+                                    }
+                                    <td>
+                                        <a data-id="@item.OrderID" href="/Customer/OrderDetail/@item.OrderID" role="button" class="btn-flat btn_sub btn-detail-order">
+
+                                            Xem
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div>
+                        <p style="margin: auto;">Bạn chưa có đơn hàng</p>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="order_Modal" class="modal">
+    <div class="user_modal-content">
+        <div class="modal-header">
+            <span class="close" id="close">&times;</span>
+            <h2>Chi tiết đơn hàng</h2>
+        </div>
+        <div class="modal-body">
+            <table class="user__orders" id="detail__order">
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    btn_order = document.getElementById("btn_order");
+    modal_order = document.getElementById("order_Modal");
+    cancel_order = document.getElementById("close");
+    showModal(modal_order, btn_order, cancel_order);
+    function showModal(modal, btn, cancel_btn) {
+        $('#btn_order').on('click', function () {
+            modal.style.display = "block";
+        })
+
+        $('#close').on('click', function () {
+            modal.style.display = "none";
+        })
+    }
+</script>

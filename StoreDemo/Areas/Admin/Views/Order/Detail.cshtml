@@ -1,0 +1,159 @@
+﻿@model DataProvider.Framework.ProductOrder
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Chi tiết đơn hàng #@Model.OrderID</h2>
+    <hr />
+    <div>
+        <label><b>Tên người nhận:</b> @Model.FullName</label>
+    </div>
+    <div>
+        <label><b>Địa chỉ:</b> @Model.Address</label>
+    </div>
+    <div>
+        <label><b>Số điện thoại:</b> @Model.PhoneNumber</label>
+    </div>
+
+    <div>
+        <label><b>Ngày đặt:</b> @Model.OrderDate</label>
+    </div>
+    <div>
+        @{string shipStatus = ""; }
+        @if (Model.Status == 0)
+        {
+            shipStatus = "Chờ duyệt";
+        }
+        else if (Model.Status == 1)
+        {
+            shipStatus = "Đang giao";
+        }
+        else if (Model.Status == 2)
+        {
+            shipStatus = "Đã giao";
+        }
+        else
+        {
+            shipStatus = "Đã hủy";
+        }
+        <label><b>Tình trạng: </b>@shipStatus</label>
+    </div>
+
+    <div>
+        @if (Model.PaymentMethod == "cod")
+        {
+            <label>Phương thức thanh toán: Thanh toán khi nhận hàng</label>
+        }
+    </div>
+
+    <table class="table table-bordered ml-auto mr-auto">
+        <tr>
+            <th>
+                MSP
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Số lượng
+            </th>
+            @if (Model.Status == 0)
+            {
+                <th>
+                    Tồn kho
+                </th>
+                <th></th>
+            }
+        </tr>
+        @{ bool status = true;}
+        @foreach (var item in Model.OrderDetails)
+        {
+    <tr>
+        <td>
+            @item.Product.ProductID
+        </td>
+        <td>
+            @item.Product.ProductName
+        </td>
+        <td>
+            @item.Quanlity
+        </td>
+
+        @if (Model.Status == 0)
+        {
+            <td>
+                @item.Product.Quanlity
+            </td>
+            <td>
+
+                @if (item.Quanlity > item.Product.Quanlity)
+                {
+                <i class="far fa-times-circle" style="color: red;"></i>
+                { status = false; }
+                }
+                else
+                {
+                <i class="far fa-check-circle" style="color: green;"></i>
+                }
+            </td>
+        }
+    </tr>
+        }
+
+    </table>
+    @if (Model.Status == 0)
+    {
+        <div class="row">
+            <div class="col-6">
+                <a role="button" href="/admin/don-hang" class="btn btn-primary">Trở về</a>
+            </div>
+            <div class="col-6">
+                @if (status == false)
+                {
+                    <form action="/Admin/Order/Cancel" class="text-right" method="post">
+                        <input type="hidden" name="id" value="@Model.OrderID">
+                        <input class="btn btn-danger" type="submit" value="Hủy đơn" />
+                    </form>
+                }
+                else
+                {
+                    <form action="/Admin/Order/Approve" class="text-right" method="post">
+                        <input type="hidden" name="id" value="@Model.OrderID">
+                        <input class="btn btn-success" type="submit" value="Duyệt" />
+                    </form>
+                }
+            </div>
+        </div>
+    }
+    else if (Model.Status == 1)
+    {
+        <div class="row">
+            <div class="col-4">
+                <a role="button" href="/admin/don-hang" class="btn btn-primary">Trở về</a>
+            </div>
+            <div class="col-4">
+                <form action="/Admin/Order/Cancel" class="text-right" method="post">
+                    <input type="hidden" name="id" value="@Model.OrderID">
+                    <input class="btn btn-danger" type="submit" value="Hủy đơn" />
+                </form>
+            </div>
+            <div class="col-4">
+                <form action="/Admin/Order/Delivered" class="text-right" method="post">
+                    <input type="hidden" name="id" value="@Model.OrderID">
+                    <input class="btn btn-success" type="submit" value="Đã giao" />
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-6">
+                <a role="button" href="/admin/don-hang" class="btn btn-primary">Trở về</a>
+            </div>
+        </div>    
+    }
+</div>
+

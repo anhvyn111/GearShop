@@ -10,23 +10,19 @@
                 <i class="bx bxs-chevron-down"></i>
             </a>
             <div class="mega-content">
-                <div class="row">
-                    @foreach (var category in item.ProductCategories)
-                    {
-                        <div class="col-3 col-md-12">
-                            <div class="box">
-                                <a href="/collection/@category.MetaTitle"><h3>@category.CategoryName</h3></a>
-                                <ul>
-                                    @foreach (var tag in category.Tags.OrderBy(x=>x.TagName))
-                                    {
-                                        <li><a href="/collection/@tag.TagID">@tag.TagName</a></li>
-                                    }
-
-                                </ul>
-                            </div>
+                <div class="mega-content-row">
+                    <div class="col-12 col-md-4">
+                        <div class="box">
+                            <ul>
+                                @foreach (var category in item.ProductCategories)
+                                {
+                                    <li>
+                                        <a href="/collection/@category.MetaTitle">@category.CategoryName</a>
+                                    </li>
+                                }
+                            </ul>
                         </div>
-                    }
-
+                    </div>
                 </div>
             </div>
         </li>

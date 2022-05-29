@@ -1,4 +1,5 @@
-﻿using DataProvider.DAO;
+﻿
+using DataProvider.DAO;
 using DataProvider.Framework;
 using StoreDemo.Common;
 using System;
@@ -16,6 +17,9 @@ namespace StoreDemo.Controllers
         {
             var productDAO = new ProductDAO();
             ViewBag.ListNewProduct = productDAO.ListNewProduct(6);
+            ViewBag.ListLaptop = productDAO.ListLaptop(6);
+            ViewBag.ListScreen = productDAO.ListScreen(6);
+            ViewBag.ListGPU = productDAO.ListGPU(6);
             return View();
         }
 

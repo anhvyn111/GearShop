@@ -13,6 +13,21 @@ namespace StoreDemo
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+               name: "Đơn hàng",
+               url: "don-hang",
+               defaults: new { controller = "Customer", action = "Order" }, namespaces: new[] { "StoreDemo.Controllers" }
+           );
+            routes.MapRoute(
+               name: "Thông tin tài khoản",
+               url: "tai-khoan",
+               defaults: new { controller = "Customer", action = "Information" }, namespaces: new[] { "StoreDemo.Controllers" }
+           );
+            routes.MapRoute(
+               name: "Đăng xuất",
+               url: "dang-xuat",
+               defaults: new { controller = "Login", action = "Logout" }, namespaces: new[] { "StoreDemo.Controllers" }
+           );
+            routes.MapRoute(
                name: "Thanh toán",
                url: "thanh-toan",
                defaults: new { controller = "CheckOut", action = "Index" }, namespaces: new[] { "StoreDemo.Controllers" }

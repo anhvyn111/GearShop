@@ -39,16 +39,16 @@ namespace StoreDemo.Areas.Admin.Controllers
                     var user = dao.GetByUsername(model.username);
                     userSession.username = user.Username;
                     Session.Add(CommonConstants.ADMIN_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+                    return Redirect("/admin/don-hang");
                 }    
                 else if(result == 0)
                 {
-                    ModelState.AddModelError("", "Tài khoản không tồn tại");
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không chính xác");
 
                 }
                 else if (result == -1)
                 {
-                    ModelState.AddModelError("", "Mật khẩu không chính xác");
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không chính xác");
                 }
             }
             else

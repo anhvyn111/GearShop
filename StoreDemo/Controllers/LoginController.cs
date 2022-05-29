@@ -39,7 +39,7 @@ namespace StoreDemo.Controllers
         {
             var dao = new CustomerDAO();
             var result = dao.Login(model.Email, Encryptor.MD5Hash(model.Password));
-            if (result)
+            if (result == 1)
             {
                 var customer = dao.GetByEmail(model.Email);
                 CustomerLogin customerSession = new CustomerLogin() { ID = customer.CustomerID, Email = customer.Email, FullName = customer.FullName };
@@ -55,10 +55,15 @@ namespace StoreDemo.Controllers
                 }
                 return Redirect("/");
             }
-            else
+            else if(result == 0)
             {
                 ViewBag.LoginError = 1;
                 ModelState.AddModelError("", "Email hoặc mật khẩu không chính xác");
+            }
+            else if(result == -1)
+            {
+                ViewBag.LoginError = 1;
+                ModelState.AddModelError("", "Tài khoản đã bị khóa");
             }
             return View("Index");
         }
@@ -71,7 +76,7 @@ namespace StoreDemo.Controllers
             {
                 if (register.Password == register.ConfirmPassword)
                 {
-                    var newCustomer = new Customer() { FullName = register.FullName, Email = register.Email, Password = Common.Encryptor.MD5Hash(register.Password) };
+                    var newCustomer = new Customer() { FullName = register.FullName, Email = register.Email, Password = Common.Encryptor.MD5Hash(register.Password), Status = 1 };
                     var result = dao.Insert(newCustomer);
                     if (result)
                     {

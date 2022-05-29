@@ -44,6 +44,25 @@ namespace DataProvider.DAO
             }      
         }
 
+        public bool Delete(int cateId)
+        {
+            try
+            {
+                var productCate = context.ProductCategories.Find(cateId);
+                if(productCate != null)
+                {
+                    context.ProductCategories.Remove(productCate);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public ProductCategory GetByID(int? id)
         {
             return context.ProductCategories.SingleOrDefault(x => x.CategoryID == id);

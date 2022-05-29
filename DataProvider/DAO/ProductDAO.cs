@@ -21,11 +21,39 @@ namespace DataProvider.DAO
             context = new GearShopDbContext();
         }
 
+        public List<Product> ListLaptop(int top)
+        {
+            var listLaptop = (from p in context.Products
+                                    join cate in context.ProductCategories on p.CategoryID equals cate.CategoryID
+                                    join menu in context.Menus on cate.MenuID equals menu.MenuID
+                                    where menu.MenuID == 2 && p.Quanlity > 0 && p.Status == true
+                                    select p).Take(top).ToList();
+            return listLaptop;
+        }
+
+        public List<Product> ListGPU(int top)
+        {
+            return (from p in context.Products
+                    join cate in context.ProductCategories on p.CategoryID equals cate.CategoryID    
+                    where cate.CategoryID == 18 && p.Quanlity > 0 && p.Status == true
+                    select p).Take(top).ToList();
+        }
+
+        public List<Product> ListScreen(int top)
+        {
+           return (from p in context.Products
+                   join cate in context.ProductCategories on p.CategoryID equals cate.CategoryID
+                   join menu in context.Menus on cate.MenuID equals menu.MenuID
+                   where menu.MenuID == 5 && p.Quanlity > 0 && p.Status == true
+                   select p).Take(top).ToList();
+        }
+
+
+
         // Admin
         public int Insert(Product model)
         {
             model.MetaTitle = StringHelper.ToUnsignMeta(model.ProductName);         
-            model.Quanlity = 0;
             model.ModifiedDate = DateTime.Now;
             model.Status = true;
             if (!string.IsNullOrEmpty(model.ProductTag))
@@ -61,28 +89,17 @@ namespace DataProvider.DAO
                 product.MetaTitle = StringHelper.ToUnsignMeta(model.ProductName);
                 product.Description = model.Description;
                 product.CategoryID = model.CategoryID;
-                product.ProductTag = model.ProductTag;
-                product.ProductTags = model.ProductTags;
                 product.Detail = model.Detail;
-                if (!string.IsNullOrEmpty(model.ProductTag))
+               
+                if(model.ProductImages.Count > 0)
                 {
-                    string[] tags = model.ProductTag.Split(',');
-                    foreach (var tag in tags)
+
+                    foreach(var item in model.ProductImages)
                     {
-                        var tagID = StringHelper.ToUnsignMeta(tag);
-                        var existedTag = CheckTag(tagID, model.CategoryID);
-                        if (!existedTag)
-                        {
-                            InsertTag(tagID, tag, model.CategoryID);
-                        }
-                        if (product.ProductTags.Where(x => x.TagID == tagID).Count() == 0)
-                        {
-                            product.ProductTags.Add(new ProductTag { TagID = tagID, ProductID = model.ProductID });
-                        }
+                        item.ProductID = product.ProductID;
+                        new ProductImageDAO().Insert(item);
                     }
                 }
-                product.ProductTag = "";
-                product.ProductTags = model.ProductTags;
                 context.SaveChanges();
                 return true;
             }
@@ -108,6 +125,7 @@ namespace DataProvider.DAO
             {
                 DeleteAllProductTag(product.ProductID);
             }
+
             context.Products.Remove(product);
             context.SaveChanges();
             return 1;
@@ -166,17 +184,25 @@ namespace DataProvider.DAO
         }
 
         // Client
+
+
+        // Xem chi tiết sản phẩm
         public Product ViewDetail(string productMeta)
         {
             var product = context.Products.Where(x => x.MetaTitle == productMeta).Include(x => x.ProductImages).FirstOrDefault();
+            var cate = context.ProductCategories.Where(x => x.CategoryID == product.CategoryID).FirstOrDefault();
+            product.ProductCategory = cate;
             return product;
         }
 
+        //Danh sách sản phẩm mới nhất
         public List<Product> ListNewProduct(int top)
         {
             var listNewProduct = context.Products.Where(p=>p.Status == true && p.Quanlity > 0).OrderByDescending(x => x.ModifiedDate).Take(top).Include(i => i.ProductImages).ToList();
             return listNewProduct;
         }
+
+        //Kiểm tra tên sản phẩm đã tồn tại hay chưa
         public bool CheckNameExist(string name, int id)
         {
             name = StoreDemo.Common.StringHelper.ToUnsignMeta(name);
@@ -199,9 +225,9 @@ namespace DataProvider.DAO
         }
 
         // Danh sách sản phẩm theo thể loại Menu
-        public List<Product> CollectionByMenu(string metaTitle)
+        public IEnumerable<Product> CollectionByMenu(string metaTitle, int page, int pageSize)
         {
-            List<Product> collection = (from p in context.Products
+            IEnumerable<Product> collection = (from p in context.Products
                                         join pc in context.ProductCategories on p.CategoryID equals pc.CategoryID
                                         join m in context.Menus on pc.MenuID equals m.MenuID
                                         where m.MetaTitle == metaTitle && p.Quanlity > 0 && p.Status == true
@@ -211,12 +237,12 @@ namespace DataProvider.DAO
                 ProductImage img = context.ProductImages.Where(x => x.ProductID == item.ProductID).FirstOrDefault();
                 item.ProductImages.Add(img);
             }
-            return collection;
+            return collection.ToPagedList(page, pageSize);
         }
         // Danh sách sản phẩm theo danh mục
-        public List<Product> CollectionByCategory(string metaTitle)
+        public IEnumerable<Product> CollectionByCategory(string metaTitle, int page, int pageSize)
         {
-            List<Product> collection = (from p in context.Products
+            IEnumerable<Product> collection = (from p in context.Products
                                         join pc in context.ProductCategories on p.CategoryID equals pc.CategoryID
                                         where pc.MetaTitle == metaTitle && p.Quanlity > 0 && p.Status == true
                                         select p).ToList();
@@ -225,7 +251,7 @@ namespace DataProvider.DAO
                 ProductImage img = context.ProductImages.Where(x => x.ProductID == item.ProductID).FirstOrDefault();
                 item.ProductImages.Add(img);
             }
-            return collection;
+            return collection.ToPagedList(page, pageSize);
         }
         // Danh sách sản phẩm theo thẻ(Tag)
         public List<Product> CollectionByTag(string metaTitle)
@@ -242,14 +268,13 @@ namespace DataProvider.DAO
             }
             return collection;
         }
-        public bool UpdateQuanlity(List<Cart> carts)
+
+        //Cập nhật số lượng sản phẩm
+        public bool UpdateQuanlity(int? productID, int? quanlity)
         {
-            foreach(var item in carts)
-            {
-                var product = context.Products.Find(item.ProductID);
-                product.Quanlity -= item.Quanlity;
-                context.SaveChanges();
-            }
+            var product = context.Products.Find(productID);
+            product.Quanlity -= quanlity;
+            context.SaveChanges();
             return true;
         }
         public bool CheckQuanlity(int productID, int? quanlity)

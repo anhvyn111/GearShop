@@ -2,30 +2,48 @@
 
 <div class="mid-header container">
     <a href="/" class="logo">GearShop</a>
-    <div class="search">
-        <input type="text" placeholder="Search" />
-        <i class="bx bx-search-alt"></i>
-    </div>
+    @using (Html.BeginForm("Search", "Product", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0" }))
+    {
+        <div class="search">
+
+            <input type="text" placeholder="Tìm kiếm" name="search" />
+            <button type="submit"><i class="bx bx-search-alt"></i></button>
+        </div>
+    }
+
     <ul class="user-menu">
-        <li>
-            @{ var session = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];}
-            @if (session != null)
-            {
-                <a href="/dang-nhap" type="button" style="border: none; background: transparent">
+        @{ var session = (CustomerLogin)Session[CommonConstants.CUSTOMER_SESSION];}
+        @if (session != null)
+        {
+            <li class="user__dropdown">
+                <button style="border: none; background: transparent"
+                        id="myBtn">
                     <i class="bx bx-user-circle"></i>
-                </a>
-                <div class="dropdown-content">
-                    <p>Xin chào, <b>@session.FullName</b></p>
-                    <a href="/tai-khoan">Thông tin tài khoản</a>
-                    <a href="/Customer/Logout">Đăng xuất</a>
+                </button>
+                <div class="dropdown-menu">
+                    <div>
+                        <a href="/tai-khoan">Thông tin</a>
+                    </div>
+                    <div>
+                        <a href="/don-hang">Đơn hàng</a>
+                    </div>
+                    <div>
+                        <a href="/dang-xuat">Đăng xuất</a>
+                    </div>
                 </div>
-            }
-            <a href="/dang-nhap" style="border: none; background: transparent"
-               id="myBtn">
-                <i class="bx bx-user-circle">           
-                </i>
-            </a>
-        </li>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="/dang-nhap" style="border: none; background: transparent"
+                   id="myBtn">
+                    <i class="bx bx-user-circle">
+                    </i>
+                </a>
+            </li>
+
+        }
         <li>
             <a href="/vo-hang" class="cart-content">
                 <i class="bx bx-cart">
@@ -34,7 +52,7 @@
                         <span class="cart-num">@ViewBag.CartItemAmount</span>
                     }
                 </i>
-                
+
             </a>
         </li>
     </ul>

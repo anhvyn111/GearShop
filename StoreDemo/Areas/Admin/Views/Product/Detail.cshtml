@@ -1,2 +1,81 @@
 ﻿@model DataProvider.Framework.Product
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
+}
+<div class="container">
+    <dl class="dl-horizontal ml-3">
+        <div class="row">
+            <dt>
+                Tên sản phẩm:
+            </dt>
+            <dd class="ml-3">
+                @Model.ProductName
+            </dd>
+        </div>
+        <div class="row">
+            <dt>
+                Loại sản phẩm:
+            </dt>
+            <dd class="ml-3">
+                @Model.ProductCategory.CategoryName
+            </dd>
+        </div>
+        <div class="row">
+            <dt>
+                Giá:
+            </dt>
+            <dd class="ml-3">
+                <del>@String.Format(info, "{0:0,0}", Model.Price)<sup>đ</sup></del>
+            </dd>
+        </div>
+        <dt>
+            Giá khuyến mãi:
+        </dt>
+        @if (Model.PromotionPrice == null)
+        {
+            <dd>
+                Không có
+            </dd>
+        }
+        else
+        {
+            <dd>
+                <del>@String.Format(info, "{0:0,0}", Model.PromotionPrice)<sup>đ</sup></del>
+            </dd>
+        }
+        <div class="form-group ml-3">
+            <div class="row mb-2">
+                <label class="control-label col-md-2">Hình ảnh:</label>
+                <div class="col-md-4 mr-auto">
+                    <input type="file" multiple="multiple" name="images">
+                </div>
+
+            </div>
+
+            <div style=" width: 100%; border: solid 1px red; white-space: nowrap; overflow-x: auto; overflow-y: hidden;">
+                @foreach (var item in Model.ProductImages)
+                {
+                    <div class="img-wrap" id="image-@item.ImageID">
+                        <img style="white-space: nowrap;" src="/Images/Products/@item.ImageName">
+                    </div>
+                }
+            </div>
+        </div>
+        <dt>
+            Chú thích:
+        </dt>
+        <dd>
+            @Model.Description
+        </dd>
+        <dt>
+            Mô tả chi tiết:
+        </dt>
+        <dd>
+            @Html.Raw(Model.Detail)
+        </dd>
+    </dl>
+
+</div>

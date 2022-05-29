@@ -1,14 +1,14 @@
 ﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
 @using PagedList.Mvc
 
-
 <table id="table_product">
     <thead>
         <tr>
-            <th>#</th>
-            <th style="width: 60%;">Tên sản phẩm</th>
-            <th>  Trạng thái</th>
-            <th></th>
+            <th class="text-center">#</th>
+            <th class="text-center" style="width: 60%;">Tên sản phẩm</th>
+            <th class="text-center">Số lượng</th>
+            <th class="text-center">  Trạng thái</th>
+            <th class="text-center"></th>
         </tr>
     </thead>
     <tbody id="product_body">
@@ -17,6 +17,7 @@
             <tr id="row_@item.ProductID">
                 <td>@item.ProductID</td>
                 <td>@item.ProductName</td>
+                <td>@item.Quanlity</td>
                 @if (item.Status == true)
                 {
                     <td><a class="btn btn-success align-content-center">Đã kích hoạt</a></td>
@@ -27,26 +28,23 @@
 
                 }
                 <td>
-                    <a type="button" onclick="ChangeStatus(@item.ProductID)" data-id="@item.ProductID" id="read_product_Btn">
+                    <a role="button" onclick="ChangeStatus(@item.ProductID)" data-id="@item.ProductID" id="read_product_Btn">
                         @if (item.Status)
                         {
-                            <i class="fas fa-eye-slash"></i>
+                            <i class="fas fa-unlock"></i>
                         }
                         else
                         {
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-lock"></i>
                         }
                     </a>
-                    <button class="btn-detail-product" style="margin-right: 7px;" onclick="DetailProduct(@item.ProductID)">
+                    <a class="btn-detail-product" href="/Admin/Product/Detail/@item.ProductID" style="margin-right: 7px;">
                         <i class="fas fa-info"></i>
-                    </button>
+                    </a>
                     <a href="~/Admin/san-pham/chinh-sua/@item.ProductID" class="btn-edit-product" data-id="@item.ProductID">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
-                    <a type="button" class="btn-manage-images" data-id="@item.ProductID">
-                        <i class="fas fa-folder-open"></i>
-                    </a>
-                    <a type="button" class="btn-manage-images" data-id="@item.ProductID">
+                    <a role="button" class="btn-delete-product" onclick="DeleteProduct(@item.ProductID)">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

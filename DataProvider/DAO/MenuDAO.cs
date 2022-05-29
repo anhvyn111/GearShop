@@ -17,7 +17,7 @@ namespace DataProvider.DAO
         }
         public List<Menu> LoadMenu()
         {
-            return context.Menus.OrderBy(x=>x.MenuID).Include(p => p.ProductCategories.Select(y=>y.Tags)).ToList();
+            return context.Menus.OrderBy(x=>x.MenuID).ToList();
         }
 
         public List<Tag> LoadTag(int? id)

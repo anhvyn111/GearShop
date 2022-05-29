@@ -1,9 +1,12 @@
-﻿
+﻿@model PagedList.IPagedList<DataProvider.Framework.ProductOrder>
+@using PagedList.Mvc
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 
+}
 
 <div class="details_table">
     <!-- Orders table-->
@@ -15,53 +18,84 @@
                    placeholder="Tìm.."
                    id="search_order"
                    style="width: 40%" />
-            <button class="btn" id="add_order_Btn">Thêm</button>
         </div>
-        <table id="table">
-            <thead>
-                <tr>
-                    <td>STT</td>
-                    <td>ID_Đơn hàng</td>
-                    <td>Tên khách hàng</td>
-                    <td>Địa chỉ</td>
-                    <td>Trạng thái</td>
-                    <td>Thành tiền</td>
-                    <td>Chỉnh sửa</td>
-                </tr>
-            </thead>
-            <tbody id="order_body">
-                <tr>
-                    <td>1</td>
-                    <td><p id="order_id">110011</p></td>
-                    <td>
-                        <p id="order_cus">
-                            abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
-                        </p>
-                    </td>
-                    <td>
-                        <p id="order_add">
-                            abfdsdsadad sadsa dsadas dsa dsd asdas dasads add
-                        </p>
-                    </td>
+        <div>
+            @if (ViewBag.OrderType == 0)
+            {
+                <a role="button" href="/admin/don-hang?id=0" class="btn btn-success" type="button">Chờ duyệt</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=1" type="button">Đang giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=2" type="button">Đã giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=-1" type="button">Đã hủy</a>
+            }
+            else if (ViewBag.OrderType == 1)
+            {
+                <a role="button" href="/admin/don-hang?id=0" class="btn btn-outline-success me-2" type="button">Chờ duyệt</a>
+                <a class="btn btn-success" href="/admin/don-hang?id=1" type="button">Đang giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=2" type="button">Đã giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=-1" type="button">Đã hủy</a>
+            }
+            else if (ViewBag.OrderType == 2)
+            {
+                <a role="button" href="/admin/don-hang?id=0" class="btn btn-outline-success me-2" type="button">Chờ duyệt</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=1" type="button">Đang giao</a>
+                <a class="btn btn-success" href="/admin/don-hang?id=2" type="button">Đã giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=-1" type="button">Đã hủy</a>
+            }
+            else
+            {
+                <a role="button" href="/admin/don-hang?id=0" class="btn btn-outline-success me-2" type="button">Chờ duyệt</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=1" type="button">Đang giao</a>
+                <a class="btn btn-outline-success me-2" href="/admin/don-hang?id=2" type="button">Đã giao</a>
+                <a class="btn btn-success" href="/admin/don-hang?id=-1" type="button">Đã hủy</a>
+            }
+        </div>
+        <div id="order-data-table">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Khách hàng</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="order_body">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><p id="order_id">@item.OrderID</p></td>
+                                <td>
+                                    <p id="order_cus">
+                                        @item.Customer.Email
+                                    </p>
+                                </td>
+                                <td>
+                                    <p id="order_price">@String.Format(info, "{0:0,0}", item.TotalPrice)<sup>đ</sup></p>
+                                </td>
+                                <td>
+                                    <a href="/admin/xem-don-hang/@item.OrderID" role="button" class="btn btn-success text-white">
+                                        Xem đơn
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
 
-                    <td id="order_status">
-                        <span class="status yellow">Shipping</span>
-                    </td>
-                    <td>
-                        <p id="order_price">10.0000</p>
-                    </td>
-                    <td>
-                        <button id="update_order_Btn">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button id="delete_Btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="pageNavPosition" class="pager-nav"></div>
+                </tbody>
+            </table>
+        </div>
+        <div id="pageNavPosition" class="pager-nav row">
+            <div class="col-6">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = ViewBag.Search }))
+            </div>
+            <div class="col-6 ms-auto">
+                <p class="text-end">
+                    Trang @Model.PageNumber
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 

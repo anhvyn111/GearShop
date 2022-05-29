@@ -125,7 +125,12 @@ namespace StoreDemo.Areas.Admin.Controllers
             ViewBag.Menu = new SelectList(dao.ListAll(), "MenuID", "MenuName", selectID);
         }
 
-
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var result = new ProductCategoryDAO().Delete(id);
+            return Json(result);
+        }
 
         [HttpGet]
         public JsonResult GetCategory(int? id)

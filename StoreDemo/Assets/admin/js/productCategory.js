@@ -42,6 +42,39 @@
     }
 })
 
+function DeleteCategory(id) {
+    if (confirm("Bạn có chắc muốn xóa danh mục này không ?")) {
+        $.ajax({
+            url: `/Admin/ProductCategory/Delete`,
+            type: 'POST',
+            data: { id: id },
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    $('#editProductCategoryModal').modal('hide');
+                    $('#alert-product-category').addClass('alert-success');
+                    $('#alert-product-category').html(`Xóa danh mục thành công`);
+                    $("#alert-product-category").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert-product-category").slideUp(500);
+                    });
+                    $('#datatable-category').load('/Admin/ProductCategory/DataTable');
+                }
+                else {
+                    $('#editProductCategoryModal').modal('hide');
+                    $('#alert-product-category').addClass('alert-danger');
+                    $('#alert-product-category').html(`Xóa thất bại, đã có sản phẩm thuôc danh mục này hoặc danh mục không tồn tại.`);
+                    $("#alert-product-category").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#alert-product-category").slideUp(500);
+                    });
+                    $('#tb-product-category-edit').val() = "";
+                }
+            }
+        })
+    }
+   
+}
+
 function ShowEditCateModal(id) {
     $.ajax({
         url: '/Admin/ProductCategory/Edit',

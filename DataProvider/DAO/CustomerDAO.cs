@@ -31,18 +31,41 @@ namespace DataProvider.DAO
         {
             return context.Customers.Where(x => x.Email == email).FirstOrDefault();
         }
-        public bool Login(string email, string password)
+        public int Login(string email, string password)
         {
             var result = context.Customers.SingleOrDefault(x => x.Email == email);
             if (result != null)
             {
                 if (result.Password == password)
                 {
-                    return true;
+                    if(result.Status == 1)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
+            }
+            return 0;
+        }
+
+        public bool Update(Customer customer)
+        {
+            var editCustomer = context.Customers.Find(customer.CustomerID);
+            editCustomer.FullName = customer.FullName;
+            editCustomer.Gender = customer.Gender;
+            editCustomer.Birth = customer.Birth;
+            editCustomer.PhoneNumber = customer.PhoneNumber;
+            int i = context.SaveChanges();
+            if(i > 0)
+            {
+                return true;
             }
             return false;
         }
+
         public bool Insert(Customer customer)
         {
             context.Customers.Add(customer);
@@ -52,6 +75,11 @@ namespace DataProvider.DAO
                 return true;
             }
             return false;
+        }
+
+        public Customer GetByID(int id)
+        {
+            return context.Customers.Where(x => x.CustomerID == id).FirstOrDefault();
         }
     }
 }

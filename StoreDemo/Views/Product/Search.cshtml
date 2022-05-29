@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<DataProvider.Framework.Product>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+@if (ViewBag.Error404 == null)
+{
+    @section clientTitle{
+        Tìm kiếm @ViewBag.Search - GearShop
+    }
+    if (Model.Count < 1)
+    {
+        <div>
+            <div style="margin-top: 4rem; text-align: center; margin-bottom: 3rem;">
+                <h3>Không tìm thấy sản phẩm "@ViewBag.Search"</h3>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="bg-main section-product" style="margin-top: 3rem;">
+            <div class="container">
+                <div class="box">
+                    <div>
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <div class="box filter-toggle-box">
+                            <button class="btn-flat btn-hover" id="filter-toggle">
+                                filter
+                            </button>
+                        </div>
+                        <div class="box">
+                            <div class="row" id="products">
+                                <!---List Products -->
+                                <!-- Product item-->
+                                @{
+                                    var url = "/Images/Products/";
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-3 col-md-6 col-sm-12">
+                                            <div class="product-card">
+                                                <div class="product-card-img">
+                                                    <img src="@url@item.ProductImages.First().ImageName"
+                                                         alt=""
+                                                         id="product_main-img" />
+                                                </div>
+                                                <div class="product-card-info">
+                                                    <div class="product-btn">
+                                                        <a href="/san-pham/@item.MetaTitle">Xem chi tiết</a>
+                                                        <a href="/add-to-cart?id=@item.ProductID" class="btn-hover btn-cart-add"
+                                                           id="add_to_cart">
+                                                            <i class="bx bxs-cart-add"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="product-card-name">
+                                                        <a href="/san-pham/@item.MetaTitle" class="product-name">@item.ProductName</a>
+                                                    </div>
+                                                    @if (item.PromotionPrice > 0)
+                                                    {
+                                                        <div class="row">
+                                                            <div class="product-card-price">
+                                                                <span><del>@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></del></span>
+                                                            </div>
+                                                            <span class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.PromotionPrice)<sup>đ</sup></span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="margin-top:auto;" class="curr-price" id="product_price">@String.Format(info, "{0:0,0}", item.Price)<sup>đ</sup></span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                <!-- END product ITEM -->
+                            </div>
+                        </div>
+                        <div class="box">
+                            @Html.PagedListPager(Model, page => Url.Action("Search", new { page, @search = ViewBag.Search }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    @section clientTitle{
+        @ViewBag.Error404 - GearShop
+    }
+    <div style="margin-top: 4rem; text-align: center; margin-bottom: 3rem;">
+        <img src="//theme.hstatic.net/1000262653/1000759281/14/404.png?v=112" />
+    </div>
+}
+

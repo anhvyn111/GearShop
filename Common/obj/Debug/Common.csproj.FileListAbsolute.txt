@@ -122,3 +122,252 @@ C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\Common\obj\Debug\Common.csproj.Co
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\Common\obj\Debug\Common.dll
 C:\Users\Anh Vy - Tuyet Quyen\Desktop\GearShop\Common\obj\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Common.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Core.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authorization.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authorization.Policy.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Core.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Routing.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Localization.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.WebEncoders.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Net.Http.Headers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Win32.Registry.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Newtonsoft.Json.Bson.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Newtonsoft.Json.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Buffers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Memory.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Numerics.Vectors.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Security.AccessControl.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Security.Cryptography.Xml.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Security.Permissions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Security.Principal.Windows.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Text.Encodings.Web.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Helpers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Mvc.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Razor.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Core.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authorization.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Authorization.Policy.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.JsonPatch.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Core.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.ResponseCaching.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Routing.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Localization.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Localization.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Options.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Extensions.WebEncoders.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Microsoft.Net.Http.Headers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Newtonsoft.Json.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\Newtonsoft.Json.Bson.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Buffers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Memory.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Numerics.Vectors.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Text.Encodings.Web.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Helpers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Mvc.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.Razor.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\obj\Debug\Common.csproj.CopyComplete
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\obj\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\GearShop\Common\obj\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Common.dll.config
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Core.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authorization.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authorization.Policy.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.JsonPatch.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Core.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Routing.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Localization.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.WebEncoders.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Net.Http.Headers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Win32.Registry.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Newtonsoft.Json.Bson.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Newtonsoft.Json.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Buffers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Memory.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Numerics.Vectors.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Security.AccessControl.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Security.Cryptography.Xml.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Security.Permissions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Security.Principal.Windows.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Text.Encodings.Web.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Helpers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Mvc.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Razor.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authentication.Core.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authorization.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Authorization.Policy.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.JsonPatch.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Core.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.DataAnnotations.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.Formatters.Json.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.ResponseCaching.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Routing.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Localization.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Localization.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Options.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Extensions.WebEncoders.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Microsoft.Net.Http.Headers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Newtonsoft.Json.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\Newtonsoft.Json.Bson.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Buffers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Memory.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Numerics.Vectors.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Text.Encodings.Web.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Helpers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Mvc.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.Razor.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\obj\Debug\Common.csproj.CopyComplete
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\obj\Debug\Common.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\obj\Debug\Common.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\Common\obj\Debug\Common.csproj.AssemblyReference.cache
