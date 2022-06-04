@@ -98,3 +98,4 @@ D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\5180014
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\StoreDemo\obj\Debug\StoreDemo.csproj.CopyComplete
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\StoreDemo\obj\Debug\StoreDemo.dll
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\StoreDemo\obj\Debug\StoreDemo.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\StoreDemo\bin\FakeHttpContext.dll

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTesting", "UnitTestProject1\XUnitTesting.csproj", "{B3E2286A-1147-4240-AE51-EE1E00B50C0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTesting", "NUnitTesting\NUnitTesting.csproj", "{EFF31BDF-BACE-41FE-8464-8628144AB3BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B3E2286A-1147-4240-AE51-EE1E00B50C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3E2286A-1147-4240-AE51-EE1E00B50C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3E2286A-1147-4240-AE51-EE1E00B50C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFF31BDF-BACE-41FE-8464-8628144AB3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF31BDF-BACE-41FE-8464-8628144AB3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF31BDF-BACE-41FE-8464-8628144AB3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF31BDF-BACE-41FE-8464-8628144AB3BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

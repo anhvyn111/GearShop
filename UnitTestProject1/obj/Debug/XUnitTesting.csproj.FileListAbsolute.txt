@@ -56,3 +56,6 @@ D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\5180014
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\obj\Debug\XUnitTesting.csproj.CopyComplete
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\bin\Debug\System.Web.Helpers.dll
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\bin\Debug\System.Web.Helpers.xml
+D:\Đại học của Anh Vy\HK7\Chuyên đề công nghệ phần mềm\51800142-51800164\source demo\UnitTestProject1\bin\Debug\FakeHttpContext.dll
