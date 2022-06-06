@@ -38,7 +38,7 @@ namespace NUnit
         {
             var product = new Product()
             {
-                ProductName = "GIGABYTE GeForce GTX 2000 MINI ITX OC 4G",
+                ProductName = "GIGABYTE GeForce GTX 4000 MINI ITX OC 4G",
                 Price = 900000,
                 CategoryID = 18,
                 Description = "Hello",
@@ -47,7 +47,7 @@ namespace NUnit
             };
             var result = _productDAO.Insert(product);
 
-            Assert.AreEqual(result, 1);
+            Assert.Greater(result, 0);
         }
     }
 }
